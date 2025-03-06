@@ -1,0 +1,247 @@
+// ==========================================================================
+// FEATURE COMPONENT
+// ==========================================================================
+//
+// Feature blocks used to display content with images and text
+// ==========================================================================
+
+@import '../variables';
+
+.feature {
+  margin-bottom: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  
+  // Feature image 
+  &__image {
+    width: 200px;
+    height: auto;
+    border-radius: $border-radius;
+    margin: 0 auto $spacing-sm auto;
+    object-fit: cover;
+    
+    &--small {
+      width: 125px;
+    }
+    
+    &--medium {
+      width: 200px;
+    }
+    
+    &--large {
+      width: 300px;
+    }
+    
+    &--circle {
+      border-radius: 50%;
+    }
+  }
+  
+  // Feature text content
+  &__text {
+    flex: 1;
+  }
+  
+  &__title {
+    margin-top: 0;
+    margin-bottom: $spacing-xs;
+    font-weight: $font-weight-medium;
+  }
+  
+  &__subtitle {
+    margin-top: 0;
+    margin-bottom: $spacing-sm;
+    font-weight: $font-weight-regular;
+  }
+  
+  &__description {
+    margin-bottom: $spacing-sm;
+  }
+  
+  // Feature layouts
+  &--horizontal {
+    @media (min-width: $breakpoint-md) {
+      flex-direction: row;
+      text-align: left;
+      align-items: center;
+      
+      .feature__image {
+        margin: 0 $spacing-md 0 0;
+      }
+      
+      &.feature--image-right {
+        flex-direction: row-reverse;
+        
+        .feature__image {
+          margin: 0 0 0 $spacing-md;
+        }
+      }
+    }
+  }
+  
+  &--image-top {
+    flex-direction: column;
+    
+    .feature__image {
+      margin-bottom: $spacing-sm;
+    }
+  }
+  
+  &--image-bottom {
+    flex-direction: column-reverse;
+    
+    .feature__image {
+      margin-top: $spacing-sm;
+    }
+  }
+  
+  // Text alignment options
+  &--text-left {
+    text-align: left;
+  }
+  
+  &--text-center {
+    text-align: center;
+  }
+  
+  &--text-right {
+    text-align: right;
+  }
+  
+  // Feature box styles
+  &--box {
+    padding: $spacing-block-mobile;
+    border: 4px dashed $color-dark;
+    border-radius: $border-radius;
+    background-color: $color-light;
+    
+    @media (min-width: $breakpoint-md) {
+      padding: $spacing-block-desktop;
+    }
+    
+    &.feature--primary {
+      background-color: $color-primary;
+      border-color: darken($color-primary, 10%);
+    }
+    
+    &.feature--dark {
+      background-color: $color-dark;
+      border-color: lighten($color-dark, 20%);
+      color: $color-light;
+    }
+    
+    &.feature--light {
+      background-color: $color-light;
+      border-color: darken($color-light, 10%);
+    }
+  }
+  
+  // Solid border
+  &--bordered {
+    padding: $spacing-block-mobile;
+    border: $border-width $border-style lighten($color-dark, 70%);
+    border-radius: $border-radius;
+    
+    @media (min-width: $breakpoint-md) {
+      padding: $spacing-block-desktop;
+    }
+  }
+  
+  // Dashed border (seen in original CSS)
+  &--dashed {
+    padding: $spacing-block-mobile;
+    border: 4px dashed $color-dark;
+    border-radius: $border-radius;
+    
+    @media (min-width: $breakpoint-md) {
+      padding: $spacing-block-desktop;
+    }
+  }
+  
+  // Background color variations
+  &--primary {
+    background-color: $color-primary;
+    color: $color-dark;
+  }
+  
+  &--dark {
+    background-color: $color-dark;
+    color: $color-light;
+  }
+  
+  &--light {
+    background-color: $color-light;
+    color: $color-dark;
+  }
+  
+  // Shadow variations
+  &--shadow {
+    box-shadow: $box-shadow-medium;
+  }
+  
+  // Spacing variations
+  &--compact {
+    margin-bottom: $spacing-sm;
+  }
+  
+  &--spacious {
+    margin-bottom: $spacing-xl;
+  }
+  
+  // Responsive behavior
+  @media (max-width: $breakpoint-md - 1) {
+    &--stack-mobile {
+      flex-direction: column;
+      text-align: center;
+      
+      .feature__image {
+        margin: 0 auto $spacing-sm auto;
+      }
+    }
+  }
+}
+
+// Testimonial feature (special case)
+.testimonial {
+  @extend .feature;
+  text-align: center;
+  padding: $spacing-md;
+  
+  &__image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto $spacing-sm auto;
+    object-fit: cover;
+  }
+  
+  &__quote {
+    font-style: italic;
+    margin-bottom: $spacing-sm;
+    position: relative;
+    
+    &::before,
+    &::after {
+      content: '"';
+      color: $color-primary;
+      font-size: 1.5em;
+      font-weight: $font-weight-bold;
+    }
+  }
+  
+  &__author {
+    font-weight: $font-weight-medium;
+    margin-bottom: 0;
+  }
+  
+  &__role {
+    font-size: $font-size-small;
+    opacity: 0.8;
+  }
+  
+  &__rating {
+    color: $color-primary;
+    margin: $spacing-xs 0;
+  }
+}

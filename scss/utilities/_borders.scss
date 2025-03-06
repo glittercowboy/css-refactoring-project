@@ -1,0 +1,75 @@
+// ==========================================================================
+// BORDER UTILITIES
+// ==========================================================================
+//
+// Utility classes for controlling borders.
+// ==========================================================================
+
+@import '../variables';
+
+// Border width
+// --------------------------------------------------
+.border { border: $border-width $border-style $border-color !important; }
+.border-0 { border: 0 !important; }
+
+.border-top { border-top: $border-width $border-style $border-color !important; }
+.border-top-0 { border-top: 0 !important; }
+
+.border-right { border-right: $border-width $border-style $border-color !important; }
+.border-right-0 { border-right: 0 !important; }
+
+.border-bottom { border-bottom: $border-width $border-style $border-color !important; }
+.border-bottom-0 { border-bottom: 0 !important; }
+
+.border-left { border-left: $border-width $border-style $border-color !important; }
+.border-left-0 { border-left: 0 !important; }
+
+// Border styles
+// --------------------------------------------------
+.border-solid { border-style: solid !important; }
+.border-dashed { border-style: dashed !important; }
+.border-dotted { border-style: dotted !important; }
+.border-double { border-style: double !important; }
+.border-none { border-style: none !important; }
+
+// Border width variations
+// --------------------------------------------------
+.border-thin { border-width: 1px !important; }
+.border-medium { border-width: $border-width !important; } // Default 2px
+.border-thick { border-width: 4px !important; }
+
+// Border radius
+// --------------------------------------------------
+.rounded { border-radius: $border-radius !important; }
+.rounded-sm { border-radius: $border-radius / 2 !important; }
+.rounded-lg { border-radius: $border-radius * 2 !important; }
+.rounded-full { border-radius: 9999px !important; }
+.rounded-0 { border-radius: 0 !important; }
+
+.rounded-top {
+  border-top-left-radius: $border-radius !important;
+  border-top-right-radius: $border-radius !important;
+  border-bottom-right-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+.rounded-right {
+  border-top-right-radius: $border-radius !important;
+  border-bottom-right-radius: $border-radius !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+.rounded-bottom {
+  border-bottom-right-radius: $border-radius !important;
+  border-bottom-left-radius: $border-radius !important;
+  border-top-right-radius: 0 !important;
+  border-top-left-radius: 0 !important;
+}
+
+.rounded-left {
+  border-top-left-radius: $border-radius !important;
+  border-bottom-left-radius: $border-radius !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}

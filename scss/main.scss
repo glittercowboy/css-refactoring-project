@@ -10,7 +10,8 @@
 @import 'variables';
 
 // Import base styles
-// @import 'base';
+@import 'base';
+@import 'accessibility';
 
 // Import layout components
 // @import 'layout';
@@ -22,7 +23,7 @@
 // @import 'utilities';
 
 // Import responsive styles
-// @import 'responsive';
+@import 'responsive';
 
 // Note: The commented imports will be uncommented as we 
 // create each of these files during the refactoring process.

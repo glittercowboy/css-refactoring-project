@@ -1,0 +1,124 @@
+// ==========================================================================
+// BUTTON COMPONENT
+// ==========================================================================
+//
+// This is a sample component demonstrating how to use the variables
+// system to create a consistent button style.
+// ==========================================================================
+
+@import '../variables';
+
+.btn {
+  display: inline-block;
+  padding: $spacing-sm $spacing-md;
+  border: $border-width $border-style transparent;
+  border-radius: $border-radius;
+  font-family: $font-primary;
+  font-weight: $font-weight-medium;
+  text-align: center;
+  cursor: pointer;
+  transition: $transition-base;
+  margin-top: 1rem;
+  line-height: $line-height-base;
+  text-decoration: none;
+  
+  // Solid button (default)
+  &--solid {
+    background-color: $color-primary;
+    color: $color-dark;
+    border-color: $color-primary;
+    
+    &:hover, &:focus {
+      background-color: darken($color-primary, 10%);
+      border-color: darken($color-primary, 10%);
+      text-decoration: none;
+    }
+  }
+  
+  // Outline button
+  &--outline {
+    background: transparent;
+    
+    &.btn--primary {
+      color: $color-primary;
+      border-color: $color-primary;
+      
+      &:hover, &:focus {
+        background-color: $color-primary;
+        color: $color-dark;
+        text-decoration: none;
+      }
+    }
+    
+    &.btn--dark {
+      color: $color-dark;
+      border-color: $color-dark;
+      
+      &:hover, &:focus {
+        background-color: $color-dark;
+        color: $color-light;
+        text-decoration: none;
+      }
+    }
+  }
+  
+  // Button sizes
+  &--small {
+    padding: $spacing-xs $spacing-sm;
+    font-size: $font-size-small;
+  }
+  
+  &--medium {
+    // Medium is the default size
+  }
+  
+  &--large {
+    padding: $spacing-sm $spacing-lg;
+    font-size: $font-size-h6;
+  }
+  
+  // Button widths
+  &--auto {
+    width: auto;
+  }
+  
+  &--full {
+    width: 100%;
+    display: block;
+  }
+  
+  // Button variations
+  &--primary {
+    // Primary styling is default
+  }
+  
+  &--dark {
+    background-color: $color-dark;
+    color: $color-light;
+    border-color: $color-dark;
+    
+    &:hover, &:focus {
+      background-color: lighten($color-dark, 10%);
+      border-color: lighten($color-dark, 10%);
+    }
+  }
+  
+  &--light {
+    background-color: $color-light;
+    color: $color-dark;
+    border-color: $color-light;
+    
+    &:hover, &:focus {
+      background-color: darken($color-light, 10%);
+      border-color: darken($color-light, 10%);
+    }
+  }
+  
+  // Disabled state
+  &:disabled,
+  &--disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}

@@ -1,0 +1,240 @@
+// ==========================================================================
+// FORM COMPONENTS
+// ==========================================================================
+//
+// Styling for all form elements including inputs, textareas, selects, etc.
+// ==========================================================================
+
+@import '../variables';
+
+// Form Container
+.form {
+  margin-bottom: $spacing-md;
+  
+  &__group {
+    margin-bottom: $spacing-md;
+    position: relative;
+  }
+  
+  &__label {
+    display: block;
+    margin-bottom: $spacing-xs;
+    font-weight: $font-weight-medium;
+  }
+  
+  &__help-text {
+    display: block;
+    font-size: $font-size-small;
+    margin-top: $spacing-xs;
+    color: lighten($color-dark, 30%);
+  }
+  
+  &__error {
+    color: $color-error;
+    font-size: $font-size-small;
+    margin-top: $spacing-xs;
+  }
+}
+
+// Text inputs, textareas and selects
+.form-control {
+  display: block;
+  width: 100%;
+  padding: $spacing-sm;
+  font-size: $font-size-base;
+  font-family: $font-primary;
+  color: $color-dark;
+  background-color: $color-white;
+  border: $border-width $border-style lighten($color-dark, 70%);
+  border-radius: $border-radius;
+  transition: $transition-base;
+  
+  &:focus {
+    border-color: $color-primary;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba($color-primary, 0.25);
+  }
+  
+  &::placeholder {
+    color: lighten($color-dark, 50%);
+  }
+  
+  &--error {
+    border-color: $color-error;
+    
+    &:focus {
+      box-shadow: 0 0 0 3px rgba($color-error, 0.25);
+    }
+  }
+  
+  &--success {
+    border-color: $color-success;
+    
+    &:focus {
+      box-shadow: 0 0 0 3px rgba($color-success, 0.25);
+    }
+  }
+  
+  &:disabled,
+  &--disabled {
+    background-color: lighten($color-dark, 75%);
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+}
+
+// Textarea specific styles
+textarea.form-control {
+  min-height: 100px;
+  resize: vertical;
+}
+
+// Select specific styles
+select.form-control {
+  appearance: none; // Remove default appearance
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 8.825L1.175 4 0 5.175 6 11.175 12 5.175 10.825 4z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right $spacing-sm center;
+  padding-right: $spacing-lg; // Make room for the dropdown icon
+}
+
+// Checkbox and radio styles
+.form-check {
+  display: flex;
+  align-items: center;
+  margin-bottom: $spacing-sm;
+  
+  &__input {
+    width: 18px;
+    height: 18px;
+    margin-right: $spacing-xs;
+    cursor: pointer;
+    
+    &:focus {
+      outline: 2px solid rgba($color-primary, 0.5);
+      outline-offset: 2px;
+    }
+  }
+  
+  &__label {
+    cursor: pointer;
+    user-select: none;
+  }
+}
+
+// Form layouts
+.form-horizontal {
+  @media (min-width: $breakpoint-md) {
+    .form__group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    
+    .form__label {
+      flex: 0 0 30%;
+      max-width: 30%;
+      margin-bottom: 0;
+      padding-right: $spacing-md;
+    }
+    
+    .form__control-container {
+      flex: 0 0 70%;
+      max-width: 70%;
+    }
+    
+    .form__help-text,
+    .form__error {
+      margin-left: 30%;
+    }
+  }
+}
+
+// Form buttons
+.form-btn {
+  @extend .btn;
+  @extend .btn--solid;
+  display: inline-block;
+  background-color: $color-primary;
+  color: $color-dark;
+  border-color: $color-primary;
+  font-weight: $font-weight-medium;
+  
+  &:hover, &:focus {
+    background-color: darken($color-primary, 10%);
+    border-color: darken($color-primary, 10%);
+  }
+}
+
+// Input groups
+.input-group {
+  display: flex;
+  
+  .form-control {
+    flex: 1;
+    
+    &:not(:first-child) {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+    
+    &:not(:last-child) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+  
+  &__prepend, 
+  &__append {
+    display: flex;
+    align-items: center;
+    padding: 0 $spacing-sm;
+    background-color: lighten($color-dark, 75%);
+    border: $border-width $border-style lighten($color-dark, 70%);
+  }
+  
+  &__prepend {
+    border-right: 0;
+    border-top-left-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
+  }
+  
+  &__append {
+    border-left: 0;
+    border-top-right-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+  }
+}
+
+// Form validation states
+.is-invalid {
+  .form-control {
+    border-color: $color-error;
+    
+    &:focus {
+      box-shadow: 0 0 0 3px rgba($color-error, 0.25);
+    }
+  }
+  
+  .form__label {
+    color: $color-error;
+  }
+}
+
+.is-valid {
+  .form-control {
+    border-color: $color-success;
+    
+    &:focus {
+      box-shadow: 0 0 0 3px rgba($color-success, 0.25);
+    }
+  }
+}
+
+// Disclaimer text (seen in original CSS)
+.disclaimer-text {
+  font-size: $font-size-small;
+  margin-top: $spacing-md;
+  margin-bottom: 0;
+  color: $color-dark;
+}

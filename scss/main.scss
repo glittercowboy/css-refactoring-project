@@ -10,20 +10,16 @@
 @import 'variables';
 
 // Import base styles
-@import 'base';
-@import 'accessibility';
+// @import 'base';
 
 // Import layout components
-@import 'layout/index';
+// @import 'layout';
 
 // Import UI components
-// @import 'components/index';
+@import 'components/index';
 
 // Import utility classes
 // @import 'utilities';
 
 // Import responsive styles
-@import 'responsive';
-
-// Note: The commented imports will be uncommented as we 
-// create each of these files during the refactoring process.
+// @import 'responsive';

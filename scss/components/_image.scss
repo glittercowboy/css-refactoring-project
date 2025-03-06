@@ -1,0 +1,204 @@
+// ==========================================================================
+// IMAGE COMPONENT
+// ==========================================================================
+//
+// Styling for images and image containers with various display options
+// ==========================================================================
+
+@import '../variables';
+
+.image {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: $border-radius;
+  background-color: lighten($color-dark, 90%); // Subtle background while loading
+  
+  // Basic image styling
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: $transition-base;
+  }
+  
+  // Optional overlay for hover effects
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-color: rgba($color-white, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: $transition-base;
+    border-radius: $border-radius;
+    
+    @media (min-width: $breakpoint-md) {
+      &:hover {
+        opacity: 1;
+      }
+    }
+    
+    &-text {
+      padding: $spacing-sm;
+      text-align: center;
+    }
+  }
+  
+  // Different border radius options
+  &--rounded {
+    border-radius: $border-radius;
+    
+    .image__image, .image__overlay {
+      border-radius: $border-radius;
+    }
+  }
+  
+  &--circle {
+    border-radius: 50%;
+    
+    .image__image, .image__overlay {
+      border-radius: 50%;
+    }
+  }
+  
+  &--no-radius {
+    border-radius: 0;
+    
+    .image__image, .image__overlay {
+      border-radius: 0;
+    }
+  }
+  
+  // Different size options
+  &--auto-width {
+    width: auto;
+    
+    .image__image {
+      width: auto;
+    }
+  }
+  
+  &--full-width {
+    width: 100%;
+    
+    .image__image {
+      width: 100%;
+    }
+  }
+  
+  &--fixed-width {
+    width: 200px;
+    
+    .image__image {
+      width: 100%;
+      height: auto;
+    }
+  }
+  
+  // Aspect ratio options
+  &--square {
+    position: relative;
+    padding-bottom: 100%;
+    height: 0;
+    overflow: hidden;
+    
+    .image__image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  
+  &--16-9 {
+    position: relative;
+    padding-bottom: 56.25%; // 9:16 = 0.5625
+    height: 0;
+    overflow: hidden;
+    
+    .image__image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  
+  // Hover effects
+  &--zoom {
+    overflow: hidden;
+    
+    .image__image {
+      transition: transform 0.5s ease;
+    }
+    
+    &:hover .image__image {
+      transform: scale(1.1);
+    }
+  }
+  
+  &--filter {
+    .image__image {
+      filter: grayscale(100%);
+      transition: filter 0.5s ease;
+    }
+    
+    &:hover .image__image {
+      filter: grayscale(0%);
+    }
+  }
+  
+  // Alignment options (used in original CSS)
+  &-container {
+    display: flex;
+    
+    &--center {
+      justify-content: center;
+    }
+    
+    &--left {
+      justify-content: flex-start;
+    }
+    
+    &--right {
+      justify-content: flex-end;
+    }
+  }
+  
+  // Border options
+  &--bordered {
+    border: $border-width $border-style lighten($color-dark, 70%);
+  }
+  
+  &--bordered-primary {
+    border: $border-width $border-style $color-primary;
+  }
+  
+  // Shadow options
+  &--shadow {
+    box-shadow: $box-shadow-medium;
+  }
+}
+
+// Legacy classes from the original CSS
+.image-container {
+  display: flex;
+  width: 100%;
+  
+  &--justify-center {
+    justify-content: center;
+  }
+  
+  &--justify-start {
+    justify-content: flex-start;
+  }
+}

@@ -1,0 +1,81 @@
+// ==========================================================================
+// TYPOGRAPHY UTILITIES
+// ==========================================================================
+//
+// Utility classes for text styling.
+// ==========================================================================
+
+@import '../variables';
+
+// Text alignment
+// --------------------------------------------------
+.text-left { text-align: left !important; }
+.text-center { text-align: center !important; }
+.text-right { text-align: right !important; }
+.text-justify { text-align: justify !important; }
+
+// Font families
+// --------------------------------------------------
+.font-primary { font-family: $font-primary !important; }
+.font-display { font-family: $font-display !important; }
+
+// Font weights
+// --------------------------------------------------
+.font-thin { font-weight: $font-weight-thin !important; }
+.font-light { font-weight: $font-weight-light !important; }
+.font-regular { font-weight: $font-weight-regular !important; }
+.font-medium { font-weight: $font-weight-medium !important; }
+.font-semibold { font-weight: $font-weight-semibold !important; }
+.font-bold { font-weight: $font-weight-bold !important; }
+.font-black { font-weight: $font-weight-black !important; }
+
+// Font sizes
+// --------------------------------------------------
+.text-xs { font-size: $font-size-small !important; }
+.text-base { font-size: $font-size-base !important; }
+.text-h6 { font-size: $font-size-h6 !important; }
+.text-h5 { font-size: $font-size-h5 !important; }
+.text-h4 { font-size: $font-size-h4 !important; }
+.text-h3 { font-size: $font-size-h3 !important; }
+.text-h2 { font-size: $font-size-h2 !important; }
+.text-h1 { font-size: $font-size-h1 !important; }
+
+// Line heights
+// --------------------------------------------------
+.leading-tight { line-height: $line-height-tight !important; }
+.leading-heading { line-height: $line-height-heading !important; }
+.leading-normal { line-height: $line-height-base !important; }
+.leading-loose { line-height: $line-height-loose !important; }
+
+// Text transforms
+// --------------------------------------------------
+.text-uppercase { text-transform: uppercase !important; }
+.text-lowercase { text-transform: lowercase !important; }
+.text-capitalize { text-transform: capitalize !important; }
+.text-normal-case { text-transform: none !important; }
+
+// Text decorations
+// --------------------------------------------------
+.text-underline { text-decoration: underline !important; }
+.text-line-through { text-decoration: line-through !important; }
+.text-no-underline { text-decoration: none !important; }
+
+// Text wrapping and overflow
+// --------------------------------------------------
+.text-truncate {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+.text-break {
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+.text-nowrap { white-space: nowrap !important; }
+
+// Font styles
+// --------------------------------------------------
+.text-italic { font-style: italic !important; }
+.text-normal { font-style: normal !important; }

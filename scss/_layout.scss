@@ -2,14 +2,15 @@
 // LAYOUT COMPONENTS
 // ==========================================================================
 //
-// This file contains all layout-related components such as container,
-// grid system, sections, and other structural elements.
+// This file contains layout components like containers, sections, and grid
+// systems that are used to structure the page.
 // ==========================================================================
 
 @import 'variables';
 
 // Container
 // ==========================================================================
+// The container is used to center content and provide consistent horizontal padding
 
 .container {
   width: 100%;
@@ -26,52 +27,113 @@
   }
   
   &--full {
-    max-width: 100%;
+    width: 100%;
+    max-width: calc(100% + #{$container-padding-mobile} * 2);
+    
+    @media (min-width: $breakpoint-md) {
+      max-width: calc(100% + #{$container-padding-desktop} * 2);
+    }
+  }
+}
+
+// Section
+// ==========================================================================
+// Sections are used to group content with consistent vertical padding
+
+.section {
+  position: relative;
+  padding: $spacing-lg 0;
+  
+  &__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1;
   }
   
-  &--narrow {
-    max-width: 800px;
+  .container {
+    position: relative;
+    z-index: 2;
   }
+  
+  // Section sizing variations
+  &__sizer {
+    padding-top: 40px;  // From original CSS
+    padding-bottom: 40px;
+    
+    @media (min-width: $breakpoint-md) {
+      padding-top: 40px;
+      padding-bottom: 40px;
+      
+      // Some sections have custom paddings on desktop
+      .section--hero & {
+        padding-top: 220px;
+        padding-bottom: 220px;
+      }
+    }
+  }
+}
+
+// Backgrounds
+// ==========================================================================
+// Background utility classes for sections and elements
+
+.background-dark {
+  background-color: $color-dark;
+  color: $color-light;
+}
+
+.background-light {
+  background-color: $color-light;
+  color: $color-dark;
+}
+
+.background-primary {
+  background-color: $color-primary;
+  color: $color-dark;
+}
+
+.background-white {
+  background-color: $color-white;
+  color: $color-dark;
 }
 
 // Grid System
 // ==========================================================================
+// A simple flexbox grid system for layout
 
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin-right: -$container-padding-mobile / 2;
-  margin-left: -$container-padding-mobile / 2;
+  margin-right: -#{$spacing-sm / 2};
+  margin-left: -#{$spacing-sm / 2};
   
-  @media (min-width: $breakpoint-md) {
-    margin-right: -$container-padding-desktop / 2;
-    margin-left: -$container-padding-desktop / 2;
-  }
-  
-  // Alignment modifiers
-  &--align-start {
-    align-items: flex-start;
+  // Alignment variations
+  &--align-stretch {
+    align-items: stretch;
   }
   
   &--align-center {
     align-items: center;
   }
   
+  &--align-start {
+    align-items: flex-start;
+  }
+  
   &--align-end {
     align-items: flex-end;
   }
   
-  &--align-stretch {
-    align-items: stretch;
-  }
-  
-  // Justify modifiers
-  &--justify-start {
-    justify-content: flex-start;
-  }
-  
+  // Justification variations
   &--justify-center {
     justify-content: center;
+  }
+  
+  &--justify-start {
+    justify-content: flex-start;
   }
   
   &--justify-end {
@@ -81,286 +143,162 @@
   &--justify-between {
     justify-content: space-between;
   }
-  
-  &--justify-around {
-    justify-content: space-around;
-  }
 }
 
 // Column classes
-[class^="col-"] {
-  position: relative;
+.col {
+  padding-right: $spacing-sm / 2;
+  padding-left: $spacing-sm / 2;
   width: 100%;
-  padding-right: $container-padding-mobile / 2;
-  padding-left: $container-padding-mobile / 2;
   
-  @media (min-width: $breakpoint-md) {
-    padding-right: $container-padding-desktop / 2;
-    padding-left: $container-padding-desktop / 2;
-  }
-}
-
-// Generate column classes
-// Mobile first columns
-@for $i from 1 through 12 {
-  .col-#{$i} {
-    flex: 0 0 (100% / 12 * $i);
-    max-width: (100% / 12 * $i);
-  }
-}
-
-// Medium breakpoint columns
-@media (min-width: $breakpoint-md) {
-  @for $i from 1 through 12 {
-    .col-md-#{$i} {
-      flex: 0 0 (100% / 12 * $i);
-      max-width: (100% / 12 * $i);
-    }
-  }
-}
-
-// Large breakpoint columns
-@media (min-width: $breakpoint-lg) {
-  @for $i from 1 through 12 {
-    .col-lg-#{$i} {
-      flex: 0 0 (100% / 12 * $i);
-      max-width: (100% / 12 * $i);
-    }
-  }
-}
-
-// Section
-// ==========================================================================
-
-.section {
-  position: relative;
-  padding: $spacing-md 0;
-  
-  &__overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
+  // Column width variations
+  &--12 {
     width: 100%;
-    height: 100%;
-    z-index: 1;
   }
   
-  &__content {
-    position: relative;
-    z-index: 2;
+  &--10 {
+    width: 83.333333%;
   }
   
-  // Section spacing variants
-  &--sm {
-    padding: $spacing-sm 0;
+  &--8 {
+    width: 66.666667%;
   }
   
-  &--md {
-    padding: $spacing-md 0;
+  &--6 {
+    width: 50%;
   }
   
-  &--lg {
-    padding: $spacing-lg 0;
+  &--4 {
+    width: 33.333333%;
   }
   
-  &--xl {
-    padding: $spacing-xl 0;
+  &--3 {
+    width: 25%;
   }
   
-  // Responsive padding adjustments
+  // Responsive variations
   @media (min-width: $breakpoint-md) {
-    padding: $spacing-lg 0;
-    
-    &--sm {
-      padding: $spacing-md 0;
+    &--md-12 {
+      width: 100%;
     }
     
-    &--md {
-      padding: $spacing-lg 0;
+    &--md-10 {
+      width: 83.333333%;
     }
     
-    &--lg {
-      padding: $spacing-xl 0;
+    &--md-8 {
+      width: 66.666667%;
     }
     
-    &--xl {
-      padding: $spacing-xxl 0;
+    &--md-6 {
+      width: 50%;
     }
-  }
-  
-  // Section with background image
-  &--bg-image {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    
+    &--md-4 {
+      width: 33.333333%;
+    }
+    
+    &--md-3 {
+      width: 25%;
+    }
   }
 }
 
 // Block
 // ==========================================================================
+// Blocks are content containers used within sections
+
 .block {
-  padding: $spacing-block-mobile;
-  margin-bottom: $spacing-md;
+  position: relative;
+  width: 100%;
   
-  @media (min-width: $breakpoint-md) {
-    padding: $spacing-block-desktop;
+  // Common padding for blocks
+  &--padded {
+    padding: $spacing-block-mobile;
+    
+    @media (min-width: $breakpoint-md) {
+      padding: $spacing-block-desktop;
+    }
   }
   
-  &--no-padding {
-    padding: 0;
+  // Box shadow variations
+  &--shadow-none {
+    box-shadow: $box-shadow-none;
   }
   
-  &--shadow {
+  &--shadow-small {
+    box-shadow: $box-shadow-small;
+  }
+  
+  &--shadow-medium {
     box-shadow: $box-shadow-medium;
   }
   
-  &--border {
-    border: 1px solid rgba($color-dark, 0.1);
-    border-radius: $border-radius;
+  &--shadow-large {
+    box-shadow: $box-shadow-large;
+  }
+  
+  // Background color variations
+  &--bg-light {
+    background-color: $color-light;
+  }
+  
+  &--bg-dark {
+    background-color: $color-dark;
+    color: $color-light;
+  }
+  
+  &--bg-primary {
+    background-color: $color-primary;
   }
 }
 
-// Header area
+// Spacing Utilities
 // ==========================================================================
-.header {
-  position: relative;
-  z-index: $z-index-fixed;
-  
-  &--fixed {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+// Classes to add consistent vertical and horizontal spacing
+
+.block-break {
+  width: 100%;
+  height: 0;
+  clear: both;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+// Media query for text alignment on mobile
+@media (max-width: $breakpoint-md - 1) {
+  .text-sm-center {
+    text-align: center;
   }
   
-  &--sticky {
-    position: sticky;
-    top: 0;
+  .text-sm-left {
+    text-align: left;
   }
   
-  &--transparent {
-    background-color: transparent;
-  }
-  
-  &__container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: $spacing-sm;
-    padding-bottom: $spacing-sm;
-    
-    @media (min-width: $breakpoint-md) {
-      padding-top: $spacing-sm;
-      padding-bottom: $spacing-sm;
-    }
-  }
-  
-  &__logo {
-    flex: 0 0 auto;
-  }
-  
-  &__nav {
-    display: none;
-    
-    @media (min-width: $breakpoint-md) {
-      display: flex;
-      align-items: center;
-    }
-  }
-  
-  &__actions {
-    display: flex;
-    align-items: center;
-  }
-  
-  &__mobile-toggle {
-    display: block;
-    
-    @media (min-width: $breakpoint-md) {
-      display: none;
-    }
+  .text-sm-right {
+    text-align: right;
   }
 }
 
-// Footer area
-// ==========================================================================
-.footer {
-  padding: $spacing-lg 0;
-  
-  &__logo {
-    margin-bottom: $spacing-md;
-  }
-  
-  &__nav {
-    margin-bottom: $spacing-md;
-  }
-  
-  &__bottom {
-    padding-top: $spacing-md;
-    border-top: 1px solid rgba($color-light, 0.1);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  &__copyright {
-    margin-bottom: $spacing-sm;
-    
-    @media (min-width: $breakpoint-md) {
-      margin-bottom: 0;
-    }
-  }
-  
-  &__social {
-    display: flex;
-    gap: $spacing-sm;
+// Hide on specific breakpoints
+.hidden--mobile {
+  @media (max-width: $breakpoint-md - 1) {
+    display: none !important;
   }
 }
 
-// Layout helpers
-// ==========================================================================
-.flex {
-  display: flex;
-  
-  &--wrap {
-    flex-wrap: wrap;
-  }
-  
-  &--column {
-    flex-direction: column;
-  }
-  
-  &--center {
-    justify-content: center;
-    align-items: center;
-  }
-}
-
-.gap {
-  gap: $spacing-sm;
-  
-  &--md {
-    gap: $spacing-md;
-  }
-  
-  &--lg {
-    gap: $spacing-lg;
-  }
-}
-
-.hidden {
-  display: none;
-  
-  &--mobile {
-    @media (max-width: $breakpoint-md - 1) {
-      display: none;
-    }
-  }
-  
-  &--desktop {
-    @media (min-width: $breakpoint-md) {
-      display: none;
-    }
+.hidden--desktop {
+  @media (min-width: $breakpoint-md) {
+    display: none !important;
   }
 }

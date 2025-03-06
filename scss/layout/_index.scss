@@ -1,0 +1,15 @@
+// ==========================================================================
+// LAYOUT INDEX
+// ==========================================================================
+//
+// This file imports all layout components so they can be included with
+// a single import statement in the main file.
+// ==========================================================================
+
+// Import main layout components
+@import '../variables';
+@import '../layout';
+
+// Import specific layout components
+@import 'header';
+@import 'footer';

@@ -1,0 +1,159 @@
+// ==========================================================================
+// RESPONSIVE UTILITIES
+// ==========================================================================
+//
+// Responsive variants of utility classes.
+// ==========================================================================
+
+@import '../variables';
+
+// Responsive display utilities
+// --------------------------------------------------
+@media (min-width: $breakpoint-sm) {
+  .d-sm-none { display: none !important; }
+  .d-sm-inline { display: inline !important; }
+  .d-sm-inline-block { display: inline-block !important; }
+  .d-sm-block { display: block !important; }
+  .d-sm-flex { display: flex !important; }
+  .d-sm-inline-flex { display: inline-flex !important; }
+}
+
+@media (min-width: $breakpoint-md) {
+  .d-md-none { display: none !important; }
+  .d-md-inline { display: inline !important; }
+  .d-md-inline-block { display: inline-block !important; }
+  .d-md-block { display: block !important; }
+  .d-md-flex { display: flex !important; }
+  .d-md-inline-flex { display: inline-flex !important; }
+}
+
+@media (min-width: $breakpoint-lg) {
+  .d-lg-none { display: none !important; }
+  .d-lg-inline { display: inline !important; }
+  .d-lg-inline-block { display: inline-block !important; }
+  .d-lg-block { display: block !important; }
+  .d-lg-flex { display: flex !important; }
+  .d-lg-inline-flex { display: inline-flex !important; }
+}
+
+@media (min-width: $breakpoint-xl) {
+  .d-xl-none { display: none !important; }
+  .d-xl-inline { display: inline !important; }
+  .d-xl-inline-block { display: inline-block !important; }
+  .d-xl-block { display: block !important; }
+  .d-xl-flex { display: flex !important; }
+  .d-xl-inline-flex { display: inline-flex !important; }
+}
+
+// Responsive text alignment
+// --------------------------------------------------
+@media (min-width: $breakpoint-sm) {
+  .text-sm-left { text-align: left !important; }
+  .text-sm-center { text-align: center !important; }
+  .text-sm-right { text-align: right !important; }
+}
+
+@media (min-width: $breakpoint-md) {
+  .text-md-left { text-align: left !important; }
+  .text-md-center { text-align: center !important; }
+  .text-md-right { text-align: right !important; }
+}
+
+@media (min-width: $breakpoint-lg) {
+  .text-lg-left { text-align: left !important; }
+  .text-lg-center { text-align: center !important; }
+  .text-lg-right { text-align: right !important; }
+}
+
+@media (min-width: $breakpoint-xl) {
+  .text-xl-left { text-align: left !important; }
+  .text-xl-center { text-align: center !important; }
+  .text-xl-right { text-align: right !important; }
+}
+
+// Responsive order
+// --------------------------------------------------
+@media (min-width: $breakpoint-sm) {
+  .order-sm-first { order: -1 !important; }
+  .order-sm-last { order: 999 !important; }
+  .order-sm-0 { order: 0 !important; }
+  .order-sm-1 { order: 1 !important; }
+  .order-sm-2 { order: 2 !important; }
+  .order-sm-3 { order: 3 !important; }
+}
+
+@media (min-width: $breakpoint-md) {
+  .order-md-first { order: -1 !important; }
+  .order-md-last { order: 999 !important; }
+  .order-md-0 { order: 0 !important; }
+  .order-md-1 { order: 1 !important; }
+  .order-md-2 { order: 2 !important; }
+  .order-md-3 { order: 3 !important; }
+}
+
+// Responsive flex utilities
+// --------------------------------------------------
+@media (min-width: $breakpoint-md) {
+  .flex-md-row { flex-direction: row !important; }
+  .flex-md-column { flex-direction: column !important; }
+  .justify-content-md-start { justify-content: flex-start !important; }
+  .justify-content-md-end { justify-content: flex-end !important; }
+  .justify-content-md-center { justify-content: center !important; }
+  .justify-content-md-between { justify-content: space-between !important; }
+  .align-items-md-start { align-items: flex-start !important; }
+  .align-items-md-end { align-items: flex-end !important; }
+  .align-items-md-center { align-items: center !important; }
+  .align-items-md-stretch { align-items: stretch !important; }
+}
+
+// Hide on specific breakpoints
+// --------------------------------------------------
+.hidden-xs-up { display: none !important; }
+
+@media (max-width: $breakpoint-sm - 1) {
+  .hidden-xs-down { display: none !important; }
+}
+
+@media (min-width: $breakpoint-sm) {
+  .hidden-sm-up { display: none !important; }
+}
+
+@media (max-width: $breakpoint-md - 1) {
+  .hidden-sm-down { display: none !important; }
+}
+
+@media (min-width: $breakpoint-md) {
+  .hidden-md-up { display: none !important; }
+}
+
+@media (max-width: $breakpoint-lg - 1) {
+  .hidden-md-down { display: none !important; }
+}
+
+@media (min-width: $breakpoint-lg) {
+  .hidden-lg-up { display: none !important; }
+}
+
+@media (max-width: $breakpoint-xl - 1) {
+  .hidden-lg-down { display: none !important; }
+}
+
+@media (min-width: $breakpoint-xl) {
+  .hidden-xl-up { display: none !important; }
+}
+
+.hidden-xl-down { display: none !important; }
+
+// Website specific responsive helper classes
+// --------------------------------------------------
+.hidden--mobile {
+  @media (max-width: $breakpoint-md - 1) {
+    display: none !important;
+  }
+}
+
+.hidden--desktop {
+  @media (min-width: $breakpoint-md) {
+    display: none !important;
+  }
+}

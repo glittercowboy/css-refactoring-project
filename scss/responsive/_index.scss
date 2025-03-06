@@ -1,0 +1,17 @@
+// ==========================================================================
+// RESPONSIVE INDEX
+// ==========================================================================
+//
+// This file imports all responsive partials to create a complete responsive
+// system. Import this file into the main.scss file to include all responsive
+// styles.
+// ==========================================================================
+
+// Import the breakpoint mixins first (other files depend on these)
+@import 'breakpoints';
+
+// Import responsive styles for different components
+@import 'typography';
+@import 'layout';
+@import 'navigation';
+@import 'utilities';

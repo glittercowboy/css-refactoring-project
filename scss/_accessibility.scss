@@ -1,0 +1,73 @@
+// ==========================================================================
+// ACCESSIBILITY
+// ==========================================================================
+//
+// This file contains styles that improve accessibility of the site.
+// ==========================================================================
+
+@import 'variables';
+
+// Focus styles
+:focus {
+  outline: 2px solid $color-primary;
+  outline-offset: 2px;
+}
+
+// Skip to content link
+.skip-to-content {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background: $color-dark;
+  color: $color-light;
+  padding: $spacing-xs $spacing-sm;
+  z-index: $z-index-fixed;
+  text-decoration: none;
+  transition: $transition-base;
+  
+  &:focus {
+    top: 0;
+  }
+}
+
+// Screen reader text
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+// Focus visible only (keyboard navigation)
+.js-focus-visible :focus:not(.focus-visible) {
+  outline: none;
+}
+
+.js-focus-visible .focus-visible {
+  outline: 2px solid $color-primary;
+  outline-offset: 2px;
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+// High contrast mode adjustments
+@media (forced-colors: active) {
+  .btn,
+  .icon,
+  .nav-link {
+    forced-color-adjust: none;
+  }
+}

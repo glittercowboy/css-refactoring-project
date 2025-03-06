@@ -1,0 +1,366 @@
+// ==========================================================================
+// LAYOUT COMPONENTS
+// ==========================================================================
+//
+// This file contains all layout-related components such as container,
+// grid system, sections, and other structural elements.
+// ==========================================================================
+
+@import 'variables';
+
+// Container
+// ==========================================================================
+
+.container {
+  width: 100%;
+  max-width: calc(#{$container-width} + #{$container-padding-mobile} * 2);
+  padding-right: $container-padding-mobile;
+  padding-left: $container-padding-mobile;
+  margin-right: auto;
+  margin-left: auto;
+  
+  @media (min-width: $breakpoint-md) {
+    max-width: calc(#{$container-width} + #{$container-padding-desktop} * 2);
+    padding-right: $container-padding-desktop;
+    padding-left: $container-padding-desktop;
+  }
+  
+  &--full {
+    max-width: 100%;
+  }
+  
+  &--narrow {
+    max-width: 800px;
+  }
+}
+
+// Grid System
+// ==========================================================================
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -$container-padding-mobile / 2;
+  margin-left: -$container-padding-mobile / 2;
+  
+  @media (min-width: $breakpoint-md) {
+    margin-right: -$container-padding-desktop / 2;
+    margin-left: -$container-padding-desktop / 2;
+  }
+  
+  // Alignment modifiers
+  &--align-start {
+    align-items: flex-start;
+  }
+  
+  &--align-center {
+    align-items: center;
+  }
+  
+  &--align-end {
+    align-items: flex-end;
+  }
+  
+  &--align-stretch {
+    align-items: stretch;
+  }
+  
+  // Justify modifiers
+  &--justify-start {
+    justify-content: flex-start;
+  }
+  
+  &--justify-center {
+    justify-content: center;
+  }
+  
+  &--justify-end {
+    justify-content: flex-end;
+  }
+  
+  &--justify-between {
+    justify-content: space-between;
+  }
+  
+  &--justify-around {
+    justify-content: space-around;
+  }
+}
+
+// Column classes
+[class^="col-"] {
+  position: relative;
+  width: 100%;
+  padding-right: $container-padding-mobile / 2;
+  padding-left: $container-padding-mobile / 2;
+  
+  @media (min-width: $breakpoint-md) {
+    padding-right: $container-padding-desktop / 2;
+    padding-left: $container-padding-desktop / 2;
+  }
+}
+
+// Generate column classes
+// Mobile first columns
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    flex: 0 0 (100% / 12 * $i);
+    max-width: (100% / 12 * $i);
+  }
+}
+
+// Medium breakpoint columns
+@media (min-width: $breakpoint-md) {
+  @for $i from 1 through 12 {
+    .col-md-#{$i} {
+      flex: 0 0 (100% / 12 * $i);
+      max-width: (100% / 12 * $i);
+    }
+  }
+}
+
+// Large breakpoint columns
+@media (min-width: $breakpoint-lg) {
+  @for $i from 1 through 12 {
+    .col-lg-#{$i} {
+      flex: 0 0 (100% / 12 * $i);
+      max-width: (100% / 12 * $i);
+    }
+  }
+}
+
+// Section
+// ==========================================================================
+
+.section {
+  position: relative;
+  padding: $spacing-md 0;
+  
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+  
+  &__content {
+    position: relative;
+    z-index: 2;
+  }
+  
+  // Section spacing variants
+  &--sm {
+    padding: $spacing-sm 0;
+  }
+  
+  &--md {
+    padding: $spacing-md 0;
+  }
+  
+  &--lg {
+    padding: $spacing-lg 0;
+  }
+  
+  &--xl {
+    padding: $spacing-xl 0;
+  }
+  
+  // Responsive padding adjustments
+  @media (min-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
+    
+    &--sm {
+      padding: $spacing-md 0;
+    }
+    
+    &--md {
+      padding: $spacing-lg 0;
+    }
+    
+    &--lg {
+      padding: $spacing-xl 0;
+    }
+    
+    &--xl {
+      padding: $spacing-xxl 0;
+    }
+  }
+  
+  // Section with background image
+  &--bg-image {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+// Block
+// ==========================================================================
+.block {
+  padding: $spacing-block-mobile;
+  margin-bottom: $spacing-md;
+  
+  @media (min-width: $breakpoint-md) {
+    padding: $spacing-block-desktop;
+  }
+  
+  &--no-padding {
+    padding: 0;
+  }
+  
+  &--shadow {
+    box-shadow: $box-shadow-medium;
+  }
+  
+  &--border {
+    border: 1px solid rgba($color-dark, 0.1);
+    border-radius: $border-radius;
+  }
+}
+
+// Header area
+// ==========================================================================
+.header {
+  position: relative;
+  z-index: $z-index-fixed;
+  
+  &--fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  
+  &--sticky {
+    position: sticky;
+    top: 0;
+  }
+  
+  &--transparent {
+    background-color: transparent;
+  }
+  
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: $spacing-sm;
+    padding-bottom: $spacing-sm;
+    
+    @media (min-width: $breakpoint-md) {
+      padding-top: $spacing-sm;
+      padding-bottom: $spacing-sm;
+    }
+  }
+  
+  &__logo {
+    flex: 0 0 auto;
+  }
+  
+  &__nav {
+    display: none;
+    
+    @media (min-width: $breakpoint-md) {
+      display: flex;
+      align-items: center;
+    }
+  }
+  
+  &__actions {
+    display: flex;
+    align-items: center;
+  }
+  
+  &__mobile-toggle {
+    display: block;
+    
+    @media (min-width: $breakpoint-md) {
+      display: none;
+    }
+  }
+}
+
+// Footer area
+// ==========================================================================
+.footer {
+  padding: $spacing-lg 0;
+  
+  &__logo {
+    margin-bottom: $spacing-md;
+  }
+  
+  &__nav {
+    margin-bottom: $spacing-md;
+  }
+  
+  &__bottom {
+    padding-top: $spacing-md;
+    border-top: 1px solid rgba($color-light, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  &__copyright {
+    margin-bottom: $spacing-sm;
+    
+    @media (min-width: $breakpoint-md) {
+      margin-bottom: 0;
+    }
+  }
+  
+  &__social {
+    display: flex;
+    gap: $spacing-sm;
+  }
+}
+
+// Layout helpers
+// ==========================================================================
+.flex {
+  display: flex;
+  
+  &--wrap {
+    flex-wrap: wrap;
+  }
+  
+  &--column {
+    flex-direction: column;
+  }
+  
+  &--center {
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.gap {
+  gap: $spacing-sm;
+  
+  &--md {
+    gap: $spacing-md;
+  }
+  
+  &--lg {
+    gap: $spacing-lg;
+  }
+}
+
+.hidden {
+  display: none;
+  
+  &--mobile {
+    @media (max-width: $breakpoint-md - 1) {
+      display: none;
+    }
+  }
+  
+  &--desktop {
+    @media (min-width: $breakpoint-md) {
+      display: none;
+    }
+  }
+}

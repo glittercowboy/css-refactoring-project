@@ -1,0 +1,145 @@
+// ==========================================================================
+// RESPONSIVE BREAKPOINTS
+// ==========================================================================
+//
+// This file contains mixins for media queries using our existing breakpoint
+// variables. These mixins make it easier to write responsive CSS.
+// ==========================================================================
+
+@import '../variables';
+
+// Mobile-first approach with min-width queries
+// -----------------------------------------------
+
+// Small devices (480px and up)
+@mixin sm-up {
+  @media (min-width: $breakpoint-sm) {
+    @content;
+  }
+}
+
+// Medium devices (768px and up)
+@mixin md-up {
+  @media (min-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+// Large devices (1024px and up)
+@mixin lg-up {
+  @media (min-width: $breakpoint-lg) {
+    @content;
+  }
+}
+
+// Extra large devices (1260px and up)
+@mixin xl-up {
+  @media (min-width: $breakpoint-xl) {
+    @content;
+  }
+}
+
+// Desktop-first approach with max-width queries
+// -----------------------------------------------
+
+// Extra small devices (below 480px)
+@mixin xs-only {
+  @media (max-width: $breakpoint-sm - 1) {
+    @content;
+  }
+}
+
+// Small devices only (between 480px and 767px)
+@mixin sm-only {
+  @media (min-width: $breakpoint-sm) and (max-width: $breakpoint-md - 1) {
+    @content;
+  }
+}
+
+// Medium devices only (between 768px and 1023px)
+@mixin md-only {
+  @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg - 1) {
+    @content;
+  }
+}
+
+// Large devices only (between 1024px and 1259px)
+@mixin lg-only {
+  @media (min-width: $breakpoint-lg) and (max-width: $breakpoint-xl - 1) {
+    @content;
+  }
+}
+
+// Range queries
+// -----------------------------------------------
+
+// Custom range
+@mixin between($min, $max) {
+  @media (min-width: $min) and (max-width: $max) {
+    @content;
+  }
+}
+
+// Orientation queries
+// -----------------------------------------------
+
+// Portrait mode
+@mixin portrait {
+  @media (orientation: portrait) {
+    @content;
+  }
+}
+
+// Landscape mode
+@mixin landscape {
+  @media (orientation: landscape) {
+    @content;
+  }
+}
+
+// Feature queries
+// -----------------------------------------------
+
+// High-resolution displays (Retina)
+@mixin retina {
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    @content;
+  }
+}
+
+// Hover capability
+@mixin has-hover {
+  @media (hover: hover) {
+    @content;
+  }
+}
+
+// No hover capability (touch devices)
+@mixin no-hover {
+  @media (hover: none) {
+    @content;
+  }
+}
+
+// Usage examples:
+// -----------------------------------------------
+// 
+// .element {
+//   font-size: 16px;
+//   
+//   @include md-up {
+//     font-size: 18px;
+//   }
+//   
+//   @include lg-up {
+//     font-size: 20px;
+//   }
+// }
+//
+// .hide-on-mobile {
+//   display: none;
+//   
+//   @include md-up {
+//     display: block;
+//   }
+// }

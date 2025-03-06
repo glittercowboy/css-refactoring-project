@@ -19,7 +19,10 @@
 @import 'components/index';
 
 // Import utility classes
-// @import 'utilities';
+@import 'utilities/index';
 
 // Import responsive styles
 // @import 'responsive';
+
+// Note: The commented imports will be uncommented as we 
+// create each of these files during the refactoring process.

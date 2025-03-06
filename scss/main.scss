@@ -1,0 +1,28 @@
+// ==========================================================================
+// MAIN SCSS FILE
+// ==========================================================================
+//
+// This is the main entry point for the CSS. It imports all the partials
+// in the correct order to build the final CSS file.
+// ==========================================================================
+
+// Import variables first
+@import 'variables';
+
+// Import base styles
+// @import 'base';
+
+// Import layout components
+// @import 'layout';
+
+// Import UI components
+// @import 'components';
+
+// Import utility classes
+// @import 'utilities';
+
+// Import responsive styles
+// @import 'responsive';
+
+// Note: The commented imports will be uncommented as we 
+// create each of these files during the refactoring process.

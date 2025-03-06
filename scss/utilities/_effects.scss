@@ -1,0 +1,70 @@
+// ==========================================================================
+// EFFECTS UTILITIES
+// ==========================================================================
+//
+// Utility classes for shadows, opacity, and transforms.
+// ==========================================================================
+
+@import '../variables';
+
+// Box shadows
+// --------------------------------------------------
+.shadow-none { box-shadow: $box-shadow-none !important; }
+.shadow-sm { box-shadow: $box-shadow-small !important; }
+.shadow { box-shadow: $box-shadow-medium !important; }
+.shadow-lg { box-shadow: $box-shadow-large !important; }
+
+// Opacity
+// --------------------------------------------------
+.opacity-0 { opacity: 0 !important; }
+.opacity-25 { opacity: 0.25 !important; }
+.opacity-50 { opacity: 0.5 !important; }
+.opacity-75 { opacity: 0.75 !important; }
+.opacity-100 { opacity: 1 !important; }
+
+// Transform utilities
+// --------------------------------------------------
+.scale-75 { transform: scale(0.75) !important; }
+.scale-90 { transform: scale(0.9) !important; }
+.scale-100 { transform: scale(1) !important; }
+.scale-110 { transform: scale(1.1) !important; }
+.scale-125 { transform: scale(1.25) !important; }
+
+.rotate-0 { transform: rotate(0deg) !important; }
+.rotate-90 { transform: rotate(90deg) !important; }
+.rotate-180 { transform: rotate(180deg) !important; }
+.rotate-270 { transform: rotate(270deg) !important; }
+
+// Transitions
+// --------------------------------------------------
+.transition { transition: $transition-base !important; }
+.transition-fast { transition: $transition-fast !important; }
+.transition-slow { transition: $transition-slow !important; }
+.transition-none { transition: none !important; }
+
+// Hover effects
+// --------------------------------------------------
+.hover-grow {
+  transition: $transition-base !important;
+  
+  &:hover,
+  &:focus {
+    transform: scale(1.05) !important;
+  }
+}
+
+.hover-shadow {
+  transition: $transition-base !important;
+  
+  &:hover,
+  &:focus {
+    box-shadow: $box-shadow-medium !important;
+  }
+}
+
+// Overflow
+// --------------------------------------------------
+.overflow-auto { overflow: auto !important; }
+.overflow-hidden { overflow: hidden !important; }
+.overflow-visible { overflow: visible !important; }
+.overflow-scroll { overflow: scroll !important; }

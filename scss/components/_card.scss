@@ -1,0 +1,178 @@
+// ==========================================================================
+// CARD COMPONENT
+// ==========================================================================
+//
+// Cards are used to group and display content in a way that is easily readable
+// ==========================================================================
+
+@import '../variables';
+
+.card {
+  border-radius: $border-radius;
+  overflow: hidden;
+  background-color: $color-white;
+  transition: $transition-base;
+  
+  // Base styling for all cards
+  &__content {
+    padding: $spacing-block-mobile;
+    
+    @media (min-width: $breakpoint-md) {
+      padding: $spacing-block-desktop;
+    }
+  }
+  
+  &__header {
+    margin-bottom: $spacing-sm;
+  }
+  
+  &__title {
+    margin-top: 0;
+    margin-bottom: $spacing-xs;
+    font-weight: $font-weight-medium;
+  }
+  
+  &__subtitle {
+    margin-top: 0;
+    margin-bottom: $spacing-xs;
+    color: darken($color-light, 20%);
+  }
+  
+  &__image {
+    width: 100%;
+    display: block;
+  }
+  
+  &__footer {
+    padding: $spacing-block-mobile;
+    border-top: $border-width $border-style lighten($color-dark, 80%);
+    
+    @media (min-width: $breakpoint-md) {
+      padding: $spacing-block-desktop;
+    }
+  }
+  
+  // Card variations
+  
+  // Basic card with shadow
+  &--shadow {
+    box-shadow: $box-shadow-medium;
+    
+    &:hover {
+      box-shadow: $box-shadow-large;
+    }
+  }
+  
+  // Card with border
+  &--bordered {
+    border: $border-width $border-style lighten($color-dark, 70%);
+  }
+  
+  // Card with primary color 
+  &--primary {
+    background-color: $color-primary;
+    color: $color-dark;
+  }
+  
+  // Card with dark background
+  &--dark {
+    background-color: $color-dark;
+    color: $color-light;
+    
+    .card__subtitle {
+      color: darken($color-light, 10%);
+    }
+  }
+  
+  // Card with light background
+  &--light {
+    background-color: $color-light;
+    color: $color-dark;
+  }
+  
+  // Horizontal card layout (image on side)
+  &--horizontal {
+    @media (min-width: $breakpoint-md) {
+      display: flex;
+      
+      .card__image-container {
+        flex: 0 0 40%;
+        max-width: 40%;
+      }
+      
+      .card__content {
+        flex: 1;
+      }
+    }
+  }
+  
+  // Card that acts as a link/clickable area
+  &--link {
+    cursor: pointer;
+    
+    &:hover {
+      transform: translateY(-3px);
+    }
+  }
+  
+  // Feature card with special design
+  &--feature {
+    text-align: center;
+    
+    .card__image {
+      width: 125px;
+      height: 125px;
+      margin: 0 auto $spacing-sm auto;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+  
+  // For dashed border style seen in the original CSS
+  &--dashed {
+    border: 4px dashed $color-dark;
+  }
+}
+
+// Block - the equivalent of card in the original CSS
+.block {
+  background-color: transparent;
+  padding: $spacing-block-mobile;
+  
+  @media (min-width: $breakpoint-md) {
+    padding: $spacing-block-desktop;
+  }
+  
+  &--no-padding {
+    padding: 0;
+  }
+  
+  &--shadow-none {
+    box-shadow: none;
+  }
+  
+  &--shadow-small {
+    box-shadow: $box-shadow-small;
+  }
+  
+  &--shadow-medium {
+    box-shadow: $box-shadow-medium;
+  }
+  
+  &--shadow-large {
+    box-shadow: $box-shadow-large;
+  }
+  
+  &--primary {
+    background-color: $color-primary;
+  }
+  
+  &--dark {
+    background-color: $color-dark;
+    color: $color-light;
+  }
+  
+  &--light {
+    background-color: $color-light;
+  }
+}

@@ -1,0 +1,268 @@
+// ==========================================================================
+// HEADER COMPONENT
+// ==========================================================================
+//
+// The header component is one of the main layout components that appears
+// on all pages. It includes the logo, navigation, and user menu.
+// ==========================================================================
+
+@import '../variables';
+
+.header {
+  position: relative;
+  background-color: $color-white;
+  font-size: 18px;
+  z-index: $z-index-fixed;
+  
+  @media (max-width: $breakpoint-md - 1) {
+    font-size: 16px;
+  }
+  
+  // Header links styling
+  a,
+  a.link-list__link,
+  a.social-icons__icon,
+  .user__login a,
+  .dropdown__item a {
+    color: $color-dark;
+    
+    &:hover {
+      color: $color-primary;
+    }
+  }
+  
+  // Header dropdown trigger
+  .dropdown__trigger {
+    color: $color-dark !important;
+    
+    &:hover {
+      color: $color-primary;
+    }
+  }
+  
+  // Mobile hamburger menu
+  .hamburger {
+    &__slices {
+      .hamburger__slice {
+        @media (max-width: $breakpoint-md - 1) {
+          background-color: $color-dark;
+        }
+      }
+    }
+  }
+  
+  // Header content (desktop vs mobile)
+  &__content {
+    &--desktop {
+      background-color: transparent;
+    }
+    
+    &--mobile {
+      @media (max-width: $breakpoint-md - 1) {
+        padding-bottom: 20px;
+        
+        a.link-list__link,
+        .dropdown__item a,
+        & {
+          text-align: left;
+        }
+      }
+    }
+  }
+  
+  // Container for header elements
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  // Header blocks (logo, menu, user)
+  &__block {
+    // Logo block
+    &--logo {
+      img {
+        display: block;
+        width: 50px;
+      }
+    }
+    
+    // Menu block
+    &--menu {
+      &.stretch {
+        flex-grow: 1;
+      }
+    }
+    
+    // Alignment variations
+    &--left {
+      @media (min-width: $breakpoint-md) {
+        text-align: left;
+      }
+    }
+    
+    &--right {
+      @media (min-width: $breakpoint-md) {
+        text-align: right;
+      }
+    }
+  }
+  
+  // Sticky header behavior
+  &--sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: transform $transition-base;
+    
+    &.is-hidden {
+      transform: translateY(-100%);
+    }
+  }
+  
+  // Header with overlay style (for hero sections)
+  &--overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: transparent;
+    
+    a,
+    a.link-list__link,
+    a.social-icons__icon,
+    .user__login a,
+    .dropdown__item a,
+    .dropdown__trigger {
+      color: $color-light;
+      
+      &:hover {
+        color: $color-primary;
+      }
+    }
+    
+    .hamburger__slice {
+      background-color: $color-light;
+    }
+    
+    .header__content--mobile {
+      @media (max-width: $breakpoint-md - 1) {
+        padding-bottom: 20px;
+      }
+    }
+  }
+}
+
+// Logo component
+.logo {
+  line-height: 1;
+  
+  &__image {
+    display: block;
+    width: 50px;
+  }
+  
+  &__text {
+    color: inherit;
+  }
+}
+
+// Link list component (used in the header)
+.link-list {
+  display: flex;
+  flex-wrap: wrap;
+  
+  &__link {
+    padding: $spacing-xs $spacing-sm;
+    margin: 0 $spacing-xs;
+    transition: $transition-base;
+    
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  
+  // Alignment variations
+  &.justify-content-left {
+    justify-content: flex-start;
+  }
+  
+  &.justify-content-center {
+    justify-content: center;
+  }
+  
+  &.justify-content-right {
+    justify-content: flex-end;
+  }
+}
+
+// User component
+.user {
+  display: flex;
+  align-items: center;
+  
+  &__login {
+    a {
+      padding: $spacing-xs $spacing-sm;
+      transition: $transition-base;
+      
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+// Dropdown component
+.dropdown {
+  position: relative;
+  
+  &__trigger {
+    cursor: pointer;
+    padding: $spacing-xs $spacing-sm;
+    display: inline-block;
+  }
+  
+  &__menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: $color-white;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow-small;
+    min-width: 200px;
+    z-index: $z-index-dropdown;
+    display: none;
+    
+    @media (min-width: $breakpoint-md) {
+      background: $color-white;
+      color: $color-links;
+    }
+  }
+  
+  &__item {
+    a {
+      display: block;
+      padding: $spacing-xs $spacing-sm;
+      color: $color-links;
+      transition: $transition-base;
+      
+      &:hover {
+        background-color: rgba($color-light, 0.5);
+        text-decoration: none;
+      }
+      
+      @media (max-width: $breakpoint-md - 1) {
+        text-align: left;
+      }
+    }
+  }
+  
+  &:hover,
+  &:focus-within {
+    .dropdown__menu {
+      display: block;
+    }
+  }
+}

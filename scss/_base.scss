@@ -1,0 +1,187 @@
+// ==========================================================================
+// BASE STYLES
+// ==========================================================================
+//
+// This file contains basic styling for HTML elements and foundational
+// styles that apply throughout the site.
+// ==========================================================================
+
+@import 'variables';
+
+// Font imports
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+// Reset/Normalize
+*, 
+*::before, 
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// Base HTML elements
+html {
+  font-size: 18px; // Base font size
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: $font-primary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-base;
+  color: $color-dark;
+  background-color: $color-white;
+  direction: ltr;
+  overflow-x: hidden;
+}
+
+// Typography
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-primary;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-heading;
+  margin-bottom: $spacing-sm;
+  color: inherit;
+}
+
+h1 {
+  font-size: $font-size-h1;
+  line-height: $line-height-tight;
+}
+
+h2 {
+  font-size: $font-size-h2;
+}
+
+h3 {
+  font-size: $font-size-h3;
+}
+
+h4 {
+  font-size: $font-size-h4;
+}
+
+h5 {
+  font-size: $font-size-h5;
+}
+
+h6 {
+  font-size: $font-size-h6;
+}
+
+p {
+  margin-bottom: $spacing-md;
+}
+
+a {
+  color: $color-primary;
+  text-decoration: none;
+  transition: $transition-base;
+  
+  &:hover,
+  &:focus {
+    color: darken($color-primary, 10%);
+    text-decoration: underline;
+  }
+}
+
+// Lists
+ul, ol {
+  margin: 0 0 $spacing-md $spacing-md;
+}
+
+li {
+  margin-bottom: $spacing-xs;
+}
+
+// Blockquotes
+blockquote {
+  margin: $spacing-md 0;
+  padding: $spacing-sm $spacing-md;
+  border-left: 4px solid $color-primary;
+  font-style: italic;
+}
+
+// Code
+code, pre {
+  font-family: monospace;
+  background-color: rgba($color-light, 0.5);
+  border-radius: $border-radius;
+}
+
+code {
+  padding: 0.2em 0.4em;
+}
+
+pre {
+  padding: $spacing-sm;
+  margin-bottom: $spacing-md;
+  overflow-x: auto;
+  
+  code {
+    padding: 0;
+    background-color: transparent;
+  }
+}
+
+// Form elements
+input, 
+textarea, 
+select, 
+button {
+  font-family: $font-primary;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+}
+
+// Images
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+// Horizontal rule
+hr {
+  height: 1px;
+  background-color: rgba($color-dark, 0.1);
+  border: 0;
+  margin: $spacing-md 0;
+}
+
+// Selection
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
+}
+
+// Background utility classes
+.background-dark {
+  background-color: $color-dark;
+  color: $color-light;
+  
+  a:not(.btn) {
+    color: $color-primary;
+    
+    &:hover,
+    &:focus {
+      color: lighten($color-primary, 10%);
+    }
+  }
+}
+
+.background-light {
+  background-color: $color-light;
+  color: $color-dark;
+}
+
+.background-primary {
+  background-color: $color-primary;
+  color: $color-dark;
+}
+
+// Responsive typography adjustments in _responsive.scss

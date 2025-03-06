@@ -1,0 +1,300 @@
+// ==========================================================================
+// ALERT COMPONENT
+// ==========================================================================
+//
+// Alert/notification styling for providing feedback messages
+// ==========================================================================
+
+@import '../variables';
+
+.alert {
+  position: relative;
+  padding: $spacing-sm $spacing-md;
+  margin-bottom: $spacing-md;
+  border: 1px solid transparent;
+  border-radius: $border-radius;
+  background-color: $color-light;
+  display: flex;
+  align-items: flex-start;
+  
+  // Alert variations by type
+  &--primary {
+    background-color: rgba($color-primary, 0.1);
+    border-color: rgba($color-primary, 0.3);
+    color: darken($color-primary, 30%);
+  }
+  
+  &--info {
+    background-color: rgba($color-info, 0.1);
+    border-color: rgba($color-info, 0.3);
+    color: darken($color-info, 10%);
+  }
+  
+  &--success {
+    background-color: rgba($color-success, 0.1);
+    border-color: rgba($color-success, 0.3);
+    color: darken($color-success, 10%);
+  }
+  
+  &--warning {
+    background-color: rgba($color-warning, 0.1);
+    border-color: rgba($color-warning, 0.3);
+    color: darken($color-warning, 10%);
+  }
+  
+  &--error,
+  &--danger {
+    background-color: rgba($color-error, 0.1);
+    border-color: rgba($color-error, 0.3);
+    color: darken($color-error, 10%);
+  }
+  
+  // Alert icon
+  &__icon {
+    margin-right: $spacing-sm;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  // Alert content
+  &__content {
+    flex: 1;
+  }
+  
+  &__title {
+    font-weight: $font-weight-medium;
+    margin-top: 0;
+    margin-bottom: $spacing-xs;
+  }
+  
+  &__message {
+    margin-bottom: 0;
+  }
+  
+  // Close button
+  &__close {
+    position: absolute;
+    top: $spacing-xs;
+    right: $spacing-xs;
+    border: none;
+    background: transparent;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: currentColor;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+    
+    &:hover {
+      opacity: 1;
+    }
+  }
+  
+  // Alert with action button
+  &__actions {
+    margin-top: $spacing-sm;
+    
+    .btn {
+      margin-right: $spacing-xs;
+    }
+  }
+  
+  // Alert sizes
+  &--small {
+    padding: $spacing-xs;
+    font-size: $font-size-small;
+  }
+  
+  &--large {
+    padding: $spacing-md;
+    font-size: $font-size-h6;
+  }
+  
+  // Alert with border on the left side only
+  &--border-left {
+    border-left-width: 4px;
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
+  }
+  
+  // Alert with drop shadow
+  &--shadow {
+    box-shadow: $box-shadow-medium;
+    border: none;
+  }
+  
+  // Alert with rounded corners
+  &--rounded {
+    border-radius: 30px;
+  }
+  
+  // Dismissible alert
+  &--dismissible {
+    padding-right: 40px;
+  }
+  
+  // For notifications that can be stacked vertically
+  &--notification {
+    position: fixed;
+    width: 300px;
+    z-index: $z-index-tooltip;
+    box-shadow: $box-shadow-medium;
+    
+    &-top-right {
+      top: $spacing-md;
+      right: $spacing-md;
+    }
+    
+    &-top-left {
+      top: $spacing-md;
+      left: $spacing-md;
+    }
+    
+    &-bottom-right {
+      bottom: $spacing-md;
+      right: $spacing-md;
+    }
+    
+    &-bottom-left {
+      bottom: $spacing-md;
+      left: $spacing-md;
+    }
+    
+    // Animation for notification alerts
+    &-enter {
+      animation: alert-in 0.3s ease forwards;
+    }
+    
+    &-exit {
+      animation: alert-out 0.3s ease forwards;
+    }
+  }
+  
+  // Alert animations
+  @keyframes alert-in {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes alert-out {
+    from {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+  }
+  
+  // For banner alerts that span the full width
+  &--banner {
+    border-radius: 0;
+    margin-bottom: 0;
+  }
+  
+  // Alert with no background (outline only)
+  &--outline {
+    background-color: transparent;
+    
+    &.alert--primary {
+      color: $color-primary;
+      border-color: $color-primary;
+    }
+    
+    &.alert--info {
+      color: $color-info;
+      border-color: $color-info;
+    }
+    
+    &.alert--success {
+      color: $color-success;
+      border-color: $color-success;
+    }
+    
+    &.alert--warning {
+      color: $color-warning;
+      border-color: $color-warning;
+    }
+    
+    &.alert--error {
+      color: $color-error;
+      border-color: $color-error;
+    }
+  }
+}
+
+// Toast notifications (simplified alerts for temporary messages)
+.toast {
+  @extend .alert;
+  @extend .alert--shadow;
+  position: fixed;
+  z-index: $z-index-tooltip;
+  width: 300px;
+  max-width: 90%;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  
+  // Top center by default
+  top: $spacing-md;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  // Allow multiple toasts to stack
+  &:nth-child(1) {
+    margin-top: 0;
+  }
+  
+  &:nth-child(2) {
+    margin-top: 70px;
+  }
+  
+  &:nth-child(3) {
+    margin-top: 140px;
+  }
+  
+  // Different positions
+  &--top-right {
+    top: $spacing-md;
+    right: $spacing-md;
+    left: auto;
+    transform: translateX(0);
+  }
+  
+  &--top-left {
+    top: $spacing-md;
+    left: $spacing-md;
+    transform: translateX(0);
+  }
+  
+  &--bottom-right {
+    top: auto;
+    bottom: $spacing-md;
+    right: $spacing-md;
+    left: auto;
+    transform: translateX(0);
+  }
+  
+  &--bottom-left {
+    top: auto;
+    bottom: $spacing-md;
+    left: $spacing-md;
+    transform: translateX(0);
+  }
+  
+  &--bottom-center {
+    top: auto;
+    bottom: $spacing-md;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

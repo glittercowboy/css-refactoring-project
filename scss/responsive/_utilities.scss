@@ -1,0 +1,583 @@
+// ==========================================================================
+// RESPONSIVE UTILITIES
+// ==========================================================================
+//
+// This file contains responsive utility classes that help adjust layout, text
+// alignment, spacing, and display properties at different screen sizes.
+// ==========================================================================
+
+@import 'breakpoints';
+
+// Responsive text alignment
+// -------------------------
+// Text alignment classes that change at different breakpoints
+
+// Text alignment by default (all screen sizes)
+.text-left {
+  text-align: left !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+// Text alignment on small screens and up
+.text-sm-left {
+  @include sm-up {
+    text-align: left !important;
+  }
+}
+
+.text-sm-center {
+  @include sm-up {
+    text-align: center !important;
+  }
+}
+
+.text-sm-right {
+  @include sm-up {
+    text-align: right !important;
+  }
+}
+
+// Text alignment on medium screens and up
+.text-md-left {
+  @include md-up {
+    text-align: left !important;
+  }
+}
+
+.text-md-center {
+  @include md-up {
+    text-align: center !important;
+  }
+}
+
+.text-md-right {
+  @include md-up {
+    text-align: right !important;
+  }
+}
+
+// Text alignment on large screens and up
+.text-lg-left {
+  @include lg-up {
+    text-align: left !important;
+  }
+}
+
+.text-lg-center {
+  @include lg-up {
+    text-align: center !important;
+  }
+}
+
+.text-lg-right {
+  @include lg-up {
+    text-align: right !important;
+  }
+}
+
+// Responsive display properties
+// -------------------------
+// Control how elements are displayed at different breakpoints
+
+// Display properties by default (all screen sizes)
+.d-none {
+  display: none !important;
+}
+
+.d-inline {
+  display: inline !important;
+}
+
+.d-inline-block {
+  display: inline-block !important;
+}
+
+.d-block {
+  display: block !important;
+}
+
+.d-flex {
+  display: flex !important;
+}
+
+.d-inline-flex {
+  display: inline-flex !important;
+}
+
+// Small screens and up
+.d-sm-none {
+  @include sm-up {
+    display: none !important;
+  }
+}
+
+.d-sm-inline {
+  @include sm-up {
+    display: inline !important;
+  }
+}
+
+.d-sm-inline-block {
+  @include sm-up {
+    display: inline-block !important;
+  }
+}
+
+.d-sm-block {
+  @include sm-up {
+    display: block !important;
+  }
+}
+
+.d-sm-flex {
+  @include sm-up {
+    display: flex !important;
+  }
+}
+
+.d-sm-inline-flex {
+  @include sm-up {
+    display: inline-flex !important;
+  }
+}
+
+// Medium screens and up
+.d-md-none {
+  @include md-up {
+    display: none !important;
+  }
+}
+
+.d-md-inline {
+  @include md-up {
+    display: inline !important;
+  }
+}
+
+.d-md-inline-block {
+  @include md-up {
+    display: inline-block !important;
+  }
+}
+
+.d-md-block {
+  @include md-up {
+    display: block !important;
+  }
+}
+
+.d-md-flex {
+  @include md-up {
+    display: flex !important;
+  }
+}
+
+.d-md-inline-flex {
+  @include md-up {
+    display: inline-flex !important;
+  }
+}
+
+// Large screens and up
+.d-lg-none {
+  @include lg-up {
+    display: none !important;
+  }
+}
+
+.d-lg-inline {
+  @include lg-up {
+    display: inline !important;
+  }
+}
+
+.d-lg-inline-block {
+  @include lg-up {
+    display: inline-block !important;
+  }
+}
+
+.d-lg-block {
+  @include lg-up {
+    display: block !important;
+  }
+}
+
+.d-lg-flex {
+  @include lg-up {
+    display: flex !important;
+  }
+}
+
+.d-lg-inline-flex {
+  @include lg-up {
+    display: inline-flex !important;
+  }
+}
+
+// Responsive flexbox utilities
+// -------------------------
+// Classes for controlling flex alignment, direction, and wrapping at different screen sizes
+
+// Flex direction utilities
+.flex-row {
+  flex-direction: row !important;
+}
+
+.flex-column {
+  flex-direction: column !important;
+}
+
+.flex-row-reverse {
+  flex-direction: row-reverse !important;
+}
+
+.flex-column-reverse {
+  flex-direction: column-reverse !important;
+}
+
+// Responsive flex direction - medium breakpoint
+.flex-md-row {
+  @include md-up {
+    flex-direction: row !important;
+  }
+}
+
+.flex-md-column {
+  @include md-up {
+    flex-direction: column !important;
+  }
+}
+
+.flex-md-row-reverse {
+  @include md-up {
+    flex-direction: row-reverse !important;
+  }
+}
+
+.flex-md-column-reverse {
+  @include md-up {
+    flex-direction: column-reverse !important;
+  }
+}
+
+// Responsive flex wrap
+.flex-wrap {
+  flex-wrap: wrap !important;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap !important;
+}
+
+.flex-wrap-reverse {
+  flex-wrap: wrap-reverse !important;
+}
+
+// Responsive justify content
+.justify-content-start {
+  justify-content: flex-start !important;
+}
+
+.justify-content-end {
+  justify-content: flex-end !important;
+}
+
+.justify-content-center {
+  justify-content: center !important;
+}
+
+.justify-content-between {
+  justify-content: space-between !important;
+}
+
+.justify-content-around {
+  justify-content: space-around !important;
+}
+
+// Responsive justify content for medium screens and up
+.justify-content-md-start {
+  @include md-up {
+    justify-content: flex-start !important;
+  }
+}
+
+.justify-content-md-end {
+  @include md-up {
+    justify-content: flex-end !important;
+  }
+}
+
+.justify-content-md-center {
+  @include md-up {
+    justify-content: center !important;
+  }
+}
+
+.justify-content-md-between {
+  @include md-up {
+    justify-content: space-between !important;
+  }
+}
+
+.justify-content-md-around {
+  @include md-up {
+    justify-content: space-around !important;
+  }
+}
+
+// Responsive align items
+.align-items-start {
+  align-items: flex-start !important;
+}
+
+.align-items-end {
+  align-items: flex-end !important;
+}
+
+.align-items-center {
+  align-items: center !important;
+}
+
+.align-items-baseline {
+  align-items: baseline !important;
+}
+
+.align-items-stretch {
+  align-items: stretch !important;
+}
+
+// Responsive align items for medium screens and up
+.align-items-md-start {
+  @include md-up {
+    align-items: flex-start !important;
+  }
+}
+
+.align-items-md-end {
+  @include md-up {
+    align-items: flex-end !important;
+  }
+}
+
+.align-items-md-center {
+  @include md-up {
+    align-items: center !important;
+  }
+}
+
+.align-items-md-baseline {
+  @include md-up {
+    align-items: baseline !important;
+  }
+}
+
+.align-items-md-stretch {
+  @include md-up {
+    align-items: stretch !important;
+  }
+}
+
+// Responsive margins
+// -------------------------
+// These add responsive margin control at different breakpoints
+
+// Responsive margin top - medium breakpoint
+.mt-md-0 {
+  @include md-up {
+    margin-top: 0 !important;
+  }
+}
+
+.mt-md-1 {
+  @include md-up {
+    margin-top: $spacing-xs !important;
+  }
+}
+
+.mt-md-2 {
+  @include md-up {
+    margin-top: $spacing-sm !important;
+  }
+}
+
+.mt-md-3 {
+  @include md-up {
+    margin-top: $spacing-md !important;
+  }
+}
+
+.mt-md-4 {
+  @include md-up {
+    margin-top: $spacing-lg !important;
+  }
+}
+
+.mt-md-5 {
+  @include md-up {
+    margin-top: $spacing-xl !important;
+  }
+}
+
+// Responsive margin bottom - medium breakpoint
+.mb-md-0 {
+  @include md-up {
+    margin-bottom: 0 !important;
+  }
+}
+
+.mb-md-1 {
+  @include md-up {
+    margin-bottom: $spacing-xs !important;
+  }
+}
+
+.mb-md-2 {
+  @include md-up {
+    margin-bottom: $spacing-sm !important;
+  }
+}
+
+.mb-md-3 {
+  @include md-up {
+    margin-bottom: $spacing-md !important;
+  }
+}
+
+.mb-md-4 {
+  @include md-up {
+    margin-bottom: $spacing-lg !important;
+  }
+}
+
+.mb-md-5 {
+  @include md-up {
+    margin-bottom: $spacing-xl !important;
+  }
+}
+
+// Responsive padding utilities
+// -------------------------
+// Similar to margin utilities, but for padding
+
+// Responsive padding top - medium breakpoint
+.pt-md-0 {
+  @include md-up {
+    padding-top: 0 !important;
+  }
+}
+
+.pt-md-1 {
+  @include md-up {
+    padding-top: $spacing-xs !important;
+  }
+}
+
+.pt-md-2 {
+  @include md-up {
+    padding-top: $spacing-sm !important;
+  }
+}
+
+.pt-md-3 {
+  @include md-up {
+    padding-top: $spacing-md !important;
+  }
+}
+
+.pt-md-4 {
+  @include md-up {
+    padding-top: $spacing-lg !important;
+  }
+}
+
+.pt-md-5 {
+  @include md-up {
+    padding-top: $spacing-xl !important;
+  }
+}
+
+// Responsive padding bottom - medium breakpoint
+.pb-md-0 {
+  @include md-up {
+    padding-bottom: 0 !important;
+  }
+}
+
+.pb-md-1 {
+  @include md-up {
+    padding-bottom: $spacing-xs !important;
+  }
+}
+
+.pb-md-2 {
+  @include md-up {
+    padding-bottom: $spacing-sm !important;
+  }
+}
+
+.pb-md-3 {
+  @include md-up {
+    padding-bottom: $spacing-md !important;
+  }
+}
+
+.pb-md-4 {
+  @include md-up {
+    padding-bottom: $spacing-lg !important;
+  }
+}
+
+.pb-md-5 {
+  @include md-up {
+    padding-bottom: $spacing-xl !important;
+  }
+}
+
+// Responsive border utilities
+// -------------------------
+// Classes to control borders at different breakpoints
+
+.border-md-0 {
+  @include md-up {
+    border: 0 !important;
+  }
+}
+
+.border-top-md-0 {
+  @include md-up {
+    border-top: 0 !important;
+  }
+}
+
+.border-right-md-0 {
+  @include md-up {
+    border-right: 0 !important;
+  }
+}
+
+.border-bottom-md-0 {
+  @include md-up {
+    border-bottom: 0 !important;
+  }
+}
+
+.border-left-md-0 {
+  @include md-up {
+    border-left: 0 !important;
+  }
+}
+
+// Match specific classes from original CSS
+// -------------------------
+.block-break {
+  flex-basis: 100%;
+  width: 0;
+}

@@ -1,0 +1,348 @@
+// ==========================================================================
+// RESPONSIVE LAYOUT
+// ==========================================================================
+//
+// This file contains responsive adjustments for containers, grids, and sections
+// adapting to different screen sizes.
+// ==========================================================================
+
+@import 'breakpoints';
+
+// Responsive containers
+// -------------------------
+.container {
+  width: 100%;
+  max-width: calc(#{$container-width} + #{$container-padding-mobile} * 2);
+  padding-right: $container-padding-mobile;
+  padding-left: $container-padding-mobile;
+  margin-right: auto;
+  margin-left: auto;
+  
+  @include md-up {
+    max-width: calc(#{$container-width} + #{$container-padding-desktop} * 2);
+    padding-right: $container-padding-desktop;
+    padding-left: $container-padding-desktop;
+  }
+  
+  &--full {
+    max-width: calc(100% + #{$container-padding-mobile} * 2);
+    
+    @include md-up {
+      max-width: calc(100% + #{$container-padding-desktop} * 2);
+    }
+  }
+}
+
+// Responsive section padding
+// -------------------------
+.section, 
+.sizer {
+  padding-top: $spacing-lg;
+  padding-bottom: $spacing-lg;
+  
+  @include md-up {
+    padding-top: $spacing-xl;
+    padding-bottom: $spacing-xl;
+  }
+  
+  &--sm {
+    padding-top: $spacing-md;
+    padding-bottom: $spacing-md;
+    
+    @include md-up {
+      padding-top: $spacing-lg;
+      padding-bottom: $spacing-lg;
+    }
+  }
+  
+  &--lg {
+    padding-top: $spacing-xl;
+    padding-bottom: $spacing-xl;
+    
+    @include md-up {
+      padding-top: $spacing-xxl;
+      padding-bottom: $spacing-xxl;
+    }
+  }
+  
+  // Remove padding options
+  &--no-top {
+    padding-top: 0;
+  }
+  
+  &--no-bottom {
+    padding-bottom: 0;
+  }
+}
+
+// Responsive grid system
+// -------------------------
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -#{$spacing-xs};
+  margin-left: -#{$spacing-xs};
+  
+  @include md-up {
+    margin-right: -#{$spacing-sm};
+    margin-left: -#{$spacing-sm};
+  }
+  
+  // Alignment variations that might need responsive adjustments
+  &--align-center {
+    align-items: center;
+  }
+  
+  &--align-start {
+    align-items: flex-start;
+  }
+  
+  &--align-end {
+    align-items: flex-end;
+  }
+  
+  &--justify-center {
+    justify-content: center;
+  }
+  
+  &--justify-start {
+    justify-content: flex-start;
+  }
+  
+  &--justify-end {
+    justify-content: flex-end;
+  }
+  
+  &--justify-between {
+    justify-content: space-between;
+  }
+}
+
+// Responsive columns
+// -------------------------
+.col {
+  padding-right: $spacing-xs;
+  padding-left: $spacing-xs;
+  width: 100%;
+  
+  @include md-up {
+    padding-right: $spacing-sm;
+    padding-left: $spacing-sm;
+  }
+  
+  // Column widths on mobile (default to 100% width)
+  &--xs-6 {
+    width: 50%;
+  }
+  
+  &--xs-4 {
+    width: 33.333333%;
+  }
+  
+  // Column widths on small screens and up
+  &--sm-12 {
+    @include sm-up {
+      width: 100%;
+    }
+  }
+  
+  &--sm-6 {
+    @include sm-up {
+      width: 50%;
+    }
+  }
+  
+  &--sm-4 {
+    @include sm-up {
+      width: 33.333333%;
+    }
+  }
+  
+  &--sm-3 {
+    @include sm-up {
+      width: 25%;
+    }
+  }
+  
+  // Column widths on medium screens and up
+  &--md-12 {
+    @include md-up {
+      width: 100%;
+    }
+  }
+  
+  &--md-6 {
+    @include md-up {
+      width: 50%;
+    }
+  }
+  
+  &--md-4 {
+    @include md-up {
+      width: 33.333333%;
+    }
+  }
+  
+  &--md-3 {
+    @include md-up {
+      width: 25%;
+    }
+  }
+  
+  // Column widths on large screens and up
+  &--lg-12 {
+    @include lg-up {
+      width: 100%;
+    }
+  }
+  
+  &--lg-6 {
+    @include lg-up {
+      width: 50%;
+    }
+  }
+  
+  &--lg-4 {
+    @include lg-up {
+      width: 33.333333%;
+    }
+  }
+  
+  &--lg-3 {
+    @include lg-up {
+      width: 25%;
+    }
+  }
+}
+
+// Responsive blocks
+// -------------------------
+.block {
+  padding: $spacing-block-mobile;
+  
+  @include md-up {
+    padding: $spacing-block-desktop;
+  }
+  
+  &--no-padding {
+    padding: 0;
+  }
+  
+  &--no-padding-top {
+    padding-top: 0;
+  }
+  
+  &--no-padding-bottom {
+    padding-bottom: 0;
+  }
+}
+
+// Responsive spacing & margins
+// -------------------------
+// These classes allow for responsive margin adjustments
+
+// Only visible on specific breakpoints
+.visible-xs {
+  display: none;
+  
+  @include xs-only {
+    display: block;
+  }
+}
+
+.visible-sm {
+  display: none;
+  
+  @include sm-only {
+    display: block;
+  }
+}
+
+.visible-md {
+  display: none;
+  
+  @include md-only {
+    display: block;
+  }
+}
+
+.visible-lg {
+  display: none;
+  
+  @include lg-only {
+    display: block;
+  }
+}
+
+// Hidden on specific breakpoints
+.hidden-xs {
+  @include xs-only {
+    display: none;
+  }
+}
+
+.hidden-sm {
+  @include sm-only {
+    display: none;
+  }
+}
+
+.hidden-md {
+  @include md-only {
+    display: none;
+  }
+}
+
+.hidden-lg {
+  @include lg-only {
+    display: none;
+  }
+}
+
+// These match the original CSS classes from the project
+.hidden--mobile {
+  @include xs-only {
+    display: none;
+  }
+}
+
+.hidden--desktop {
+  @include md-up {
+    display: none;
+  }
+}
+
+// Responsive order
+// -------------------------
+// Classes to change the order of elements at different breakpoints
+
+.order-first {
+  order: -1;
+}
+
+.order-last {
+  order: 1;
+}
+
+.order-md-first {
+  @include md-up {
+    order: -1;
+  }
+}
+
+.order-md-last {
+  @include md-up {
+    order: 1;
+  }
+}
+
+// Mobile-specific ordering
+@include xs-only {
+  .order-xs-first {
+    order: -1;
+  }
+  
+  .order-xs-last {
+    order: 1;
+  }
+}

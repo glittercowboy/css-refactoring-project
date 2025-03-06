@@ -1,0 +1,212 @@
+// ==========================================================================
+// MODAL COMPONENT
+// ==========================================================================
+//
+// Modal/dialog windows for displaying content on top of the main page
+// ==========================================================================
+
+@import '../variables';
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: $z-index-modal;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: rgba($color-dark, 0.7);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  
+  // Active state
+  &.is-active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+  }
+  
+  // Modal content container
+  &__content {
+    position: relative;
+    background-color: $color-white;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow-large;
+    width: 100%;
+    max-width: 500px;
+    margin: $spacing-md;
+    animation: modal-in 0.3s ease;
+    
+    // Color variations
+    &--dark {
+      background-color: $color-dark;
+      color: $color-light;
+    }
+    
+    &--light {
+      background-color: $color-light;
+    }
+    
+    &--primary {
+      background-color: $color-primary;
+    }
+  }
+  
+  // Modal sizes
+  &--small &__content {
+    max-width: 400px;
+  }
+  
+  &--medium &__content {
+    max-width: 600px;
+  }
+  
+  &--large &__content {
+    max-width: 800px;
+  }
+  
+  &--full &__content {
+    max-width: 95%;
+    height: 95%;
+  }
+  
+  // Modal header
+  &__header {
+    padding: $spacing-md;
+    border-bottom: 1px solid lighten($color-dark, 80%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  &__title {
+    margin: 0;
+    font-weight: $font-weight-medium;
+  }
+  
+  // Modal body
+  &__body {
+    padding: $spacing-md;
+    overflow-y: auto;
+    max-height: 70vh;
+  }
+  
+  // Modal footer
+  &__footer {
+    padding: $spacing-md;
+    border-top: 1px solid lighten($color-dark, 80%);
+    display: flex;
+    justify-content: flex-end;
+    
+    .btn {
+      margin-left: $spacing-xs;
+    }
+  }
+  
+  // Close button
+  .close-x {
+    position: absolute;
+    top: $spacing-sm;
+    right: $spacing-sm;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    
+    &__part {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 24px;
+      height: 2px;
+      background-color: $color-dark;
+      
+      &:first-child {
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+      
+      &:last-child {
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+    }
+    
+    .modal__content--dark & {
+      &__part {
+        background-color: $color-light;
+      }
+    }
+  }
+  
+  // Animation keyframes
+  @keyframes modal-in {
+    from {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  // For the two-step form modal in original CSS
+  &.two-step {
+    .modal__content {
+      background-color: $color-dark;
+      
+      .modal__body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  }
+  
+  // For the exit pop modal in original CSS
+  &#exit-pop .modal__content {
+    background: $color-white;
+  }
+}
+
+// Modal backdrop (alternative approach)
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba($color-dark, 0.7);
+  z-index: $z-index-modal-backdrop;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  
+  &.is-active {
+    opacity: 1;
+  }
+}
+
+// Accessibility support
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+// Focus handling for accessibility
+.modal:focus,
+.modal__content:focus {
+  outline: none;
+}
+
+// Prevent body scrolling when modal is open
+body.modal-open {
+  overflow: hidden;
+}

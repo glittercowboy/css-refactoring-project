@@ -1,0 +1,131 @@
+// ==========================================================================
+// VARIABLES
+// ==========================================================================
+//
+// This file contains all the design tokens for the project including:
+// - Color palette
+// - Typography settings
+// - Spacing values
+// - Breakpoints
+// - Container widths
+// - Border properties
+// ==========================================================================
+
+// COLORS
+// ==========================================================================
+
+// Brand colors
+$color-primary: #e6ac55;
+$color-dark: #0d0c0d;
+$color-light: #f0f0f0;
+$color-white: #ffffff;
+
+// UI colors
+$color-links: #595959;
+$color-footer-bg: #161e2a;
+$color-error: #d32f2f;
+$color-success: #388e3c;
+$color-warning: #f57c00;
+$color-info: #1976d2;
+
+// Alpha variants
+$color-dark-overlay: rgba($color-dark, 0.8);
+$color-light-overlay: rgba($color-light, 0.8);
+
+// TYPOGRAPHY
+// ==========================================================================
+
+// Font families
+$font-primary: 'Poppins', sans-serif;
+$font-display: 'Abril Fatface', serif;
+
+// Font weights
+$font-weight-thin: 100;
+$font-weight-light: 300;
+$font-weight-regular: 400; 
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-black: 900;
+
+// Font sizes using modular scale
+$font-size-base: 1rem;      // 18px
+$font-size-h1: 6.61rem;     // 118.98px
+$font-size-h2: 4.209rem;    // 75.76px
+$font-size-h3: 3.157rem;    // 56.83px  
+$font-size-h4: 2.369rem;    // 42.64px
+$font-size-h5: 1.777rem;    // 31.99px
+$font-size-h6: 1.333rem;    // 24px
+$font-size-small: 0.889rem; // 16px
+
+// Line heights
+$line-height-tight: 0.8;
+$line-height-heading: 1.1;
+$line-height-base: 1.5;
+$line-height-loose: 1.8;
+
+// SPACING
+// ==========================================================================
+
+// Base spacing
+$spacing-unit: 1rem;
+
+// Spacing scale
+$spacing-xs: $spacing-unit * 0.5;   // 0.5rem - 9px
+$spacing-sm: $spacing-unit;         // 1rem - 18px
+$spacing-md: $spacing-unit * 2;     // 2rem - 36px
+$spacing-lg: $spacing-unit * 3;     // 3rem - 54px
+$spacing-xl: $spacing-unit * 4;     // 4rem - 72px
+$spacing-xxl: $spacing-unit * 6;    // 6rem - 108px
+
+// Padding values from existing CSS
+$spacing-block-mobile: 20px;
+$spacing-block-desktop: 30px;
+
+// BORDERS & SHAPES
+// ==========================================================================
+
+$border-radius: 4px;
+$border-width: 2px;
+$border-style: solid;
+$border-color: $color-dark;
+
+// Box shadow
+$box-shadow-none: none;
+$box-shadow-small: 0 2px 4px rgba($color-dark, 0.1);
+$box-shadow-medium: 0 4px 6px rgba($color-dark, 0.1);
+$box-shadow-large: 0 10px 15px rgba($color-dark, 0.1);
+
+// BREAKPOINTS
+// ==========================================================================
+
+$breakpoint-sm: 480px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1260px;
+
+// GRID & CONTAINERS
+// ==========================================================================
+
+// Container widths
+$container-width: 1260px;
+$container-padding-mobile: 10px;
+$container-padding-desktop: 40px;
+
+// Z-INDEX
+// ==========================================================================
+
+$z-index-dropdown: 1000;
+$z-index-sticky: 1020;
+$z-index-fixed: 1030;
+$z-index-modal-backdrop: 1040;
+$z-index-modal: 1050;
+$z-index-popover: 1060;
+$z-index-tooltip: 1070;
+
+// TRANSITIONS
+// ==========================================================================
+
+$transition-base: all 0.3s ease;
+$transition-fast: all 0.2s ease;
+$transition-slow: all 0.5s ease;

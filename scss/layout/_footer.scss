@@ -1,0 +1,166 @@
+// ==========================================================================
+// FOOTER COMPONENT
+// ==========================================================================
+//
+// The footer component is the main bottom layout component that appears on
+// all pages. It includes links, copyright info, and social media.
+// ==========================================================================
+
+@import '../variables';
+
+// Footer container
+.footer {
+  background-color: $color-footer-bg;
+  color: $color-light;
+  padding: $spacing-lg 0;
+  
+  // Make footer take up remaining screen space if content is short
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  
+  // Footer content
+  &__content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  
+  // Footer container
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  
+  // Footer blocks
+  &__block {
+    margin-bottom: $spacing-md;
+    font-size: 16px;
+    
+    @media (min-width: $breakpoint-md) {
+      font-size: 18px;
+    }
+  }
+  
+  // Footer links and text
+  a {
+    color: $color-light;
+    transition: $transition-base;
+    
+    &:hover {
+      color: $color-primary;
+      text-decoration: none;
+    }
+  }
+  
+  .logo__text {
+    color: inherit;
+  }
+  
+  // Link list in footer
+  .link-list {
+    &__links {
+      width: 100%;
+    }
+    
+    &__link {
+      color: $color-light;
+      margin-bottom: $spacing-xs;
+      
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+  
+  // Social icons in footer
+  .social-icons {
+    display: flex;
+    flex-wrap: wrap;
+    
+    &__icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      margin-right: $spacing-xs;
+      margin-bottom: $spacing-xs;
+      border-radius: 50%;
+      background-color: rgba($color-light, 0.1);
+      color: $color-light;
+      transition: $transition-base;
+      
+      &:hover {
+        background-color: $color-primary;
+        color: $color-dark;
+      }
+    }
+  }
+  
+  // Copyright notice
+  .copyright {
+    color: rgba($color-light, 0.7);
+    font-size: 14px;
+  }
+  
+  // Powered by notice
+  .powered-by {
+    font-size: 12px;
+    color: rgba($color-light, 0.5);
+    
+    a {
+      color: rgba($color-light, 0.7) !important;
+      
+      &:hover {
+        color: $color-light !important;
+      }
+    }
+  }
+  
+  // Newsletter form in footer
+  .form {
+    margin-top: $spacing-sm;
+    
+    input[type="email"] {
+      background-color: rgba($color-light, 0.1);
+      border: 1px solid rgba($color-light, 0.2);
+      color: $color-light;
+      padding: $spacing-xs $spacing-sm;
+      border-radius: $border-radius;
+      width: 100%;
+      margin-bottom: $spacing-sm;
+      
+      &::placeholder {
+        color: rgba($color-light, 0.5);
+      }
+      
+      &:focus {
+        border-color: $color-primary;
+        outline: none;
+      }
+    }
+    
+    .form-btn {
+      background-color: $color-primary;
+      color: $color-dark;
+      border: none;
+      padding: $spacing-xs $spacing-sm;
+      border-radius: $border-radius;
+      cursor: pointer;
+      transition: $transition-base;
+      
+      &:hover {
+        background-color: darken($color-primary, 10%);
+      }
+    }
+    
+    .disclaimer-text {
+      font-size: 12px;
+      margin-top: $spacing-sm;
+      color: rgba($color-light, 0.7);
+    }
+  }
+}

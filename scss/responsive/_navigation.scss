@@ -1,0 +1,328 @@
+// ==========================================================================
+// RESPONSIVE NAVIGATION
+// ==========================================================================
+//
+// This file contains responsive styles for header and navigation components.
+// It includes mobile menu handling and desktop navigation variations.
+// ==========================================================================
+
+@import 'breakpoints';
+
+// Header responsive adjustments
+// -------------------------
+.header {
+  background-color: $color-white;
+  
+  @include xs-only {
+    font-size: 16px;
+  }
+  
+  @include md-up {
+    font-size: 18px;
+  }
+  
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  &__content {
+    width: 100%;
+    
+    &--desktop {
+      @include xs-only {
+        display: none;
+      }
+    }
+    
+    &--mobile {
+      display: none;
+      padding-bottom: 20px;
+      
+      @include xs-only {
+        &.is-open {
+          display: block;
+        }
+      }
+      
+      .link-list__link {
+        text-align: left;
+      }
+    }
+  }
+  
+  // Sticky header behavior
+  &--sticky {
+    position: sticky;
+    top: 0;
+    z-index: $z-index-sticky;
+    transition: transform 0.3s ease;
+    
+    &.is-hidden {
+      transform: translateY(-100%);
+    }
+  }
+  
+  // Overlay header (for hero sections)
+  &--overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: $z-index-fixed;
+    background-color: transparent;
+    
+    a, .dropdown__trigger {
+      color: $color-white;
+    }
+    
+    .header__content--mobile {
+      @include xs-only {
+        padding-bottom: 20px;
+      }
+    }
+  }
+}
+
+// Logo responsive adjustments
+// -------------------------
+.logo {
+  line-height: 1;
+  
+  &__image {
+    display: block;
+    width: 50px;
+    
+    @include lg-up {
+      // Could adjust logo size for larger screens if needed
+      // width: 60px;
+    }
+  }
+}
+
+// Navigation links responsive behavior
+// -------------------------
+.link-list {
+  display: flex;
+  
+  &--row {
+    .link-list__links {
+      display: flex;
+      
+      @include xs-only {
+        flex-direction: column;
+      }
+    }
+  }
+  
+  &__links {
+    width: 100%;
+  }
+  
+  &__link {
+    display: block;
+    padding: $spacing-xs $spacing-sm;
+    
+    @include xs-only {
+      padding: $spacing-sm 0;
+    }
+  }
+  
+  // Responsive text alignment classes from original CSS
+  &--desktop-right {
+    @include md-up {
+      text-align: right;
+    }
+  }
+  
+  &--desktop-left {
+    @include md-up {
+      text-align: left;
+    }
+  }
+  
+  &--desktop-center {
+    @include md-up {
+      text-align: center;
+    }
+  }
+  
+  &--mobile-right {
+    @include xs-only {
+      text-align: right;
+    }
+  }
+  
+  &--mobile-left {
+    @include xs-only {
+      text-align: left;
+    }
+  }
+  
+  &--mobile-center {
+    @include xs-only {
+      text-align: center;
+    }
+  }
+}
+
+// Dropdown menu responsive behavior
+// -------------------------
+.dropdown {
+  position: relative;
+  
+  &__trigger {
+    cursor: pointer;
+    
+    &:hover {
+      // Style for desktop
+      @include md-up {
+        color: $color-primary;
+      }
+    }
+  }
+  
+  &__menu {
+    @include md-up {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: $z-index-dropdown;
+      min-width: 10rem;
+      padding: $spacing-sm 0;
+      background: $color-white;
+      border-radius: $border-radius;
+      box-shadow: $box-shadow-medium;
+      
+      &.is-open {
+        display: block;
+      }
+    }
+    
+    @include xs-only {
+      position: static;
+      box-shadow: none;
+      background: transparent;
+      padding: 0 0 0 $spacing-md;
+    }
+  }
+  
+  &__item {
+    a {
+      display: block;
+      padding: $spacing-xs $spacing-sm;
+      
+      @include xs-only {
+        text-align: left;
+        padding: $spacing-xs 0;
+      }
+      
+      @include md-up {
+        color: $color-links;
+      }
+    }
+  }
+}
+
+// Mobile menu toggle button
+// -------------------------
+.hamburger {
+  display: block;
+  cursor: pointer;
+  padding: $spacing-xs;
+  
+  @include md-up {
+    display: none;
+  }
+  
+  &__slices {
+    position: relative;
+    width: 24px;
+    height: 18px;
+  }
+  
+  &__slice {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: $color-dark;
+    transition: $transition-base;
+    
+    &--slice-1 {
+      top: 0;
+    }
+    
+    &--slice-2,
+    &--slice-3 {
+      top: 8px;
+    }
+    
+    &--slice-4 {
+      top: 16px;
+    }
+  }
+  
+  // Active state for hamburger when menu is open
+  &.is-active {
+    .hamburger__slice {
+      &--slice-1,
+      &--slice-4 {
+        opacity: 0;
+      }
+      
+      &--slice-2 {
+        transform: rotate(45deg);
+      }
+      
+      &--slice-3 {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}
+
+// User login/account responsive behavior
+// -------------------------
+.user {
+  @include xs-only {
+    margin: $spacing-sm 0;
+  }
+  
+  &__login {
+    a {
+      @include xs-only {
+        text-align: left;
+        display: block;
+        padding: $spacing-xs 0;
+      }
+    }
+  }
+}
+
+// Footer responsive styles
+// -------------------------
+.footer {
+  flex-grow: 1;
+  display: flex;
+  
+  &__block {
+    font-size: 16px;
+    margin-bottom: $spacing-sm;
+    
+    @include md-up {
+      font-size: 18px;
+      margin-bottom: 0;
+    }
+  }
+  
+  &__container {
+    @include xs-only {
+      flex-direction: column;
+    }
+    
+    @include md-up {
+      align-items: center;
+    }
+  }
+}

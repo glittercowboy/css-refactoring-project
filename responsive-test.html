@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Components Test</title>
+  <link rel="stylesheet" href="dist/css/main.css">
+  <style>
+    /* Styles for demo purposes only */
+    .demo-box {
+      background-color: #f0f0f0;
+      border: 1px solid #ddd;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+    
+    .demo-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    .demo-heading {
+      border-bottom: 2px solid #e6ac55;
+      padding-bottom: 10px;
+      margin: 40px 0 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-container">
+    <h1 class="demo-heading">Responsive Components Test</h1>
+    <p>This page demonstrates the responsive components and utility classes implemented in our CSS refactoring project. Resize your browser window to see how different elements respond to various screen sizes.</p>
+    
+    <h2 class="demo-heading">1. Responsive Typography</h2>
+    <div class="demo-box">
+      <h1>Heading 1</h1>
+      <h2>Heading 2</h2>
+      <h3>Heading 3</h3>
+      <h4>Heading 4</h4>
+      <h5>Heading 5</h5>
+      <h6>Heading 6</h6>
+      <p>This is a paragraph of text that demonstrates the responsive typography. The font size and line height will adjust based on the screen size to maintain readability across all devices.</p>
+      <div class="dropcap">
+        <p>This paragraph has a dropcap style applied to it, which will change size responsively on different screen sizes. The first letter should appear larger and styled differently from the rest of the text.</p>
+      </div>
+    </div>
+    
+    <h2 class="demo-heading">2. Responsive Grid System</h2>
+    <div class="demo-box">
+      <div class="row">
+        <div class="col col--xs-12 col--md-6 col--lg-4">
+          <div style="background-color: #e6ac55; padding: 20px; margin: 5px;">
+            Column 1: xs-12, md-6, lg-4
+          </div>
+        </div>
+        <div class="col col--xs-12 col--md-6 col--lg-4">
+          <div style="background-color: #e6ac55; padding: 20px; margin: 5px;">
+            Column 2: xs-12, md-6, lg-4
+          </div>
+        </div>
+        <div class="col col--xs-12 col--md-12 col--lg-4">
+          <div style="background-color: #e6ac55; padding: 20px; margin: 5px;">
+            Column 3: xs-12, md-12, lg-4
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <h2 class="demo-heading">3. Responsive Display Classes</h2>
+    <div class="demo-box">
+      <div class="visible-xs" style="border: 2px solid #0d0c0d; padding: 10px; margin: 5px;">
+        This is only visible on extra small screens (xs)
+      </div>
+      <div class="visible-sm" style="border: 2px solid #0d0c0d; padding: 10px; margin: 5px;">
+        This is only visible on small screens (sm)
+      </div>
+      <div class="hidden--mobile" style="border: 2px solid #0d0c0d; padding: 10px; margin: 5px;">
+        This is hidden on mobile screens, visible on desktop (matches original CSS class)
+      </div>
+      <div class="hidden--desktop" style="border: 2px solid #0d0c0d; padding: 10px; margin: 5px;">
+        This is visible on mobile screens, hidden on desktop (matches original CSS class)
+      </div>
+      <div class="d-none d-md-block" style="border: 2px solid #0d0c0d; padding: 10px; margin: 5px;">
+        This is hidden by default, but appears on medium screens and up
+      </div>
+    </div>
+    
+    <h2 class="demo-heading">4. Responsive Text Alignment</h2>
+    <div class="demo-box">
+      <p class="text-center text-md-left" style="border: 2px solid #0d0c0d; padding: 10px; margin: 5px;">
+        This text is centered by default, but left-aligned on medium screens and up
+      </p>
+      <p class="text-left text-md-center text-lg-right" style="border: 2px solid #0d0c0d; padding: 10px; margin: 5px;">
+        This text changes alignment at each breakpoint: left (mobile) → center (tablet) → right (desktop)
+      </p>
+    </div>
+    
+    <h2 class="demo-heading">5. Responsive Flexbox</h2>
+    <div class="demo-box">
+      <div class="d-flex flex-column flex-md-row" style="border: 2px solid #0d0c0d; margin: 5px;">
+        <div style="background-color: #e6ac55; padding: 20px; margin: 5px; flex: 1;">
+          Flex Item 1
+        </div>
+        <div style="background-color: #e6ac55; padding: 20px; margin: 5px; flex: 1;">
+          Flex Item 2
+        </div>
+        <div style="background-color: #e6ac55; padding: 20px; margin: 5px; flex: 1;">
+          Flex Item 3
+        </div>
+      </div>
+    </div>
+    
+    <h2 class="demo-heading">6. Responsive Spacing</h2>
+    <div class="demo-box">
+      <div class="mb-2 mb-md-4" style="background-color: #e6ac55; padding: 20px;">
+        This element has a small bottom margin on mobile, but a larger one on medium screens and up
+      </div>
+      <div class="pt-1 pt-md-3 pb-1 pb-md-3" style="background-color: #e6ac55; padding: 0;">
+        This element has small padding on mobile, but larger padding on medium screens and up
+      </div>
+    </div>
+    
+    <h2 class="demo-heading">7. Responsive Order</h2>
+    <div class="demo-box">
+      <div class="d-flex flex-column flex-md-row">
+        <div class="order-2 order-md-1" style="background-color: #e6ac55; padding: 20px; margin: 5px; flex: 1;">
+          First on desktop, Second on mobile
+        </div>
+        <div class="order-1 order-md-2" style="background-color: #e6ac55; padding: 20px; margin: 5px; flex: 1;">
+          Second on desktop, First on mobile
+        </div>
+      </div>
+    </div>
+    
+    <h2 class="demo-heading">8. Responsive Navigation</h2>
+    <div class="demo-box">
+      <header class="header">
+        <div class="container">
+          <div class="header__container">
+            <div class="logo">
+              <img src="https://via.placeholder.com/50" alt="Logo" class="logo__image">
+            </div>
+            
+            <nav class="hidden--mobile">
+              <div class="link-list">
+                <div class="link-list__links">
+                  <a href="#" class="link-list__link">Home</a>
+                  <a href="#" class="link-list__link">About</a>
+                  <a href="#" class="link-list__link">Services</a>
+                  <a href="#" class="link-list__link">Contact</a>
+                </div>
+              </div>
+            </nav>
+            
+            <div class="hamburger hidden--desktop">
+              <div class="hamburger__slices">
+                <div class="hamburger__slice hamburger__slice--slice-1"></div>
+                <div class="hamburger__slice hamburger__slice--slice-2"></div>
+                <div class="hamburger__slice hamburger__slice--slice-3"></div>
+                <div class="hamburger__slice hamburger__slice--slice-4"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
+    
+    <h2 class="demo-heading">9. Media Query Mixin Examples</h2>
+    <div class="demo-box">
+      <p>The following examples demonstrate how our media query mixins work in practice. The colored boxes below will change at different breakpoints:</p>
+      
+      <div style="background-color: #e6ac55; padding: 20px; margin: 20px 0; border: 2px dashed #0d0c0d;">
+        <p><strong>sm-up Example:</strong> This box is yellow by default, but will turn green at the small breakpoint (480px) and above.</p>
+        <div class="example-sm-up" style="height: 50px; background-color: #e6ac55;"></div>
+      </div>
+      
+      <div style="background-color: #e6ac55; padding: 20px; margin: 20px 0; border: 2px dashed #0d0c0d;">
+        <p><strong>md-up Example:</strong> This box is yellow by default, but will turn blue at the medium breakpoint (768px) and above.</p>
+        <div class="example-md-up" style="height: 50px; background-color: #e6ac55;"></div>
+      </div>
+      
+      <div style="background-color: #e6ac55; padding: 20px; margin: 20px 0; border: 2px dashed #0d0c0d;">
+        <p><strong>lg-up Example:</strong> This box is yellow by default, but will turn purple at the large breakpoint (1024px) and above.</p>
+        <div class="example-lg-up" style="height: 50px; background-color: #e6ac55;"></div>
+      </div>
+      
+      <div style="background-color: #e6ac55; padding: 20px; margin: 20px 0; border: 2px dashed #0d0c0d;">
+        <p><strong>xs-only Example:</strong> This box is yellow by default, but will turn red only on extra small screens (below 480px).</p>
+        <div class="example-xs-only" style="height: 50px; background-color: #e6ac55;"></div>
+      </div>
+      
+      <style>
+        @media (min-width: 480px) {
+          .example-sm-up {
+            background-color: #388e3c !important; /* Green */
+          }
+        }
+        
+        @media (min-width: 768px) {
+          .example-md-up {
+            background-color: #1976d2 !important; /* Blue */
+          }
+        }
+        
+        @media (min-width: 1024px) {
+          .example-lg-up {
+            background-color: #9c27b0 !important; /* Purple */
+          }
+        }
+        
+        @media (max-width: 479px) {
+          .example-xs-only {
+            background-color: #d32f2f !important; /* Red */
+          }
+        }
+      </style>
+    </div>
+  </div>
+  
+  <script>
+    // Simple script to toggle mobile menu
+    document.addEventListener('DOMContentLoaded', function() {
+      var hamburger = document.querySelector('.hamburger');
+      if (hamburger) {
+        hamburger.addEventListener('click', function() {
+          this.classList.toggle('is-active');
+          // In a real implementation, this would toggle the mobile menu
+        });
+      }
+    });
+  </script>
+</body>
+</html>
